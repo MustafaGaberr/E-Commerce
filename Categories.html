@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noon - Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+
+
+    <style>
+        /* تأثير hover على الكروت */
+        #productsGrid .card {
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #productsGrid .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* صور الكروت */
+        #productsGrid .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* السلايدر */
+        .circle-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .circle-slider .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .circle-slider .circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .circle-slider .circle img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">ShopStyle</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="navigateTo('index')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="navigateTo('categories')">Categories</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary me-2" id="searchToggle">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary position-relative" onclick="navigateTo('cart')">
+                        <i class="bi bi-cart"></i>
+                        <span id="cart-count" class="cart-badge" style="display: none">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div id="searchBar" class="container mt-3" style="display: none">
+        <input type="text" class="form-control" placeholder="Search products..." />
+    </div>
+
+
+
+    <!-- Categories Content -->
+    <div class="container py-4">
+        <div class="row">
+            <aside class="col-md-3">
+                <div class="card p-3 mb-3">
+                    <h5>Price Range</h5>
+                    <input type="range" id="priceRange" min="0" max="500" value="500" class="form-range">
+                    <p>Max Price: <span id="priceValue">$500</span></p>
+                </div>
+                <div class="card p-3">
+                    <h5>Categories</h5>
+                    <div>
+                        <label><input type="checkbox" class="category-checkbox" value="Clothing">
+                            Clothing</label><br>
+                        <label><input type="checkbox" class="category-checkbox" value="Shoes"> Shoes</label><br>
+                        <label><input type="checkbox" class="category-checkbox" value="Accessories">
+                            Accessories</label><br>
+                        <label><input type="checkbox" class="category-checkbox" value="Beauty"> Beauty</label>
+                    </div>
+                </div>
+            </aside>
+            <main class="col-md-9">
+                <div class="row" id="productsGrid">
+                    <div class="col-md-4 product-card" data-price="89.99" data-category="Shoes">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Classic White Sneakers</h5>
+                                <p class="card-text">$89.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="1"
+                                    data-name="Classic White Sneakers" data-price="89.99">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 product-card" data-price="129.99" data-category="Accessories">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Leather Crossbody Bag</h5>
+                                <p class="card-text">$129.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="2"
+                                    data-name="Leather Crossbody Bag" data-price="129.99">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 product-card" data-price="79.99" data-category="Clothing">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Denim Jacket</h5>
+                                <p class="card-text">$79.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="3" data-name="Denim Jacket"
+                                    data-price="79.99">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 product-card" data-price="199.99" data-category="Accessories">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Gold Watch</h5>
+                                <p class="card-text">$199.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="4" data-name="Gold Watch"
+                                    data-price="199.99">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>About Us</h5>
+                    <p class="text-secondary">
+                        ShopStyle brings you the latest trends and products with
+                        exceptional quality and style.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Home</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Categories</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Cart</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Shipping</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Returns</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">Track Order</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect With Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-secondary fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary fs-4"><i class="bi bi-envelope"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <h6>Newsletter</h6>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" />
+                            <button class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top border-secondary">
+                <p class="text-secondary">
+                    &copy; 2024 ShopStyle. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const products = {
+            ceiling: [
+                { title: "Ceiling Light 1", price: "$50", img: "https://via.placeholder.com/200" },
+                { title: "Ceiling Light 2", price: "$75", img: "https://via.placeholder.com/200" }
+            ],
+            table: [
+                { title: "Table Lamp 1", price: "$30", img: "https://via.placeholder.com/200" },
+                { title: "Table Lamp 2", price: "$45", img: "https://via.placeholder.com/200" }
+            ],
+            wall: [
+                { title: "Wall Light 1", price: "$40", img: "https://via.placeholder.com/200" },
+                { title: "Wall Light 2", price: "$60", img: "https://via.placeholder.com/200" }
+            ]
+        };
+
+        function showProducts(category) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+            products[category].forEach(product => {
+                const col = document.createElement('div');
+                col.className = 'col-md-4';
+                col.innerHTML = `
+                    <div class="card">
+                        <img src="${product.img}" class="card-img-top" alt="${product.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.title}</h5>
+                            <p class="card-text">${product.price}</p>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(col);
+            });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

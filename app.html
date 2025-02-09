@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="Ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#" onclick="navigateTo('categories')">Categories</a></li>
+                <li><a href="#" onclick="navigateTo('cart')">Cart <span id="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Content will be loaded here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Simple E-Commerce</p>
+    </footer>
+
+    <script>
+        let cartItems = [];
+
+        function navigateTo(page) {
+            fetch(page + '.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html;
+                });
+        }
+
+        function addToCart(productId, productName, productPrice, productImage) {
+            let existingItem = cartItems.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({ id: productId, name: productName, price: productPrice, quantity: 1, image: productImage });
+            }
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        // Load home page by default
+        navigateTo('home');
+    </script>
+</body>
+
+</html>
