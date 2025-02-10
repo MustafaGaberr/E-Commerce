@@ -1,5 +1,17 @@
 @import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');
 
+.card-body {
+    flex-grow: 1; /* يجعل المحتوى يتمدد حسب الحاجة */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* يجعل الأزرار في الأسفل دائمًا */
+}
+
+.card-img-top {
+    height: 180px; /* تحديد ارتفاع ثابت للصورة */
+    object-fit: cover; /* لجعل الصورة متناسبة */
+}
+
 .category-image {
     height: 180px;
     width: 300px;
@@ -21,12 +33,20 @@
     border-radius: 100%;
 }
 
+.bg-custom {
+    background-color: #1f2a4a !important;
+    opacity: 0.90;
+}
+
 .bg-primary {
     background-color: #1f2a4a !important;
 }
 
 .card {
-    width: 250px;
+    width: 250px; /* عرض ثابت */
+    height: 400px; /* ارتفاع ثابت */
+    display: flex;
+    flex-direction: column;
 }
 
 /* categories page */
