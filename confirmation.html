@@ -2,40 +2,73 @@
 <html lang="ar">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noon - Cart</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noon - Home</title>
     <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .cart-container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .order-summary {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .checkout-btn {
-            background-color: #5a54f7;
-            color: white;
-            border: none;
-            width: 100%;
+        .step.completed {
+            color: green;
         }
 
-        .checkout-btn:hover {
-            background-color: #4a46e0;
+        .step.active {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #e0f7e9;
+            color: green;
+            font-weight: bold;
+        }
+
+        .step.active .step-number {
+            background-color: #d6d6ff;
+            color: blue;
+        }
+
+        .confirmation-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .confirmation-icon {
+            font-size: 60px;
+            color: green;
+            margin-bottom: 20px;
+        }
+
+        .order-number {
+            font-weight: bold;
+            margin-top: 10px;
         }
     </style>
 
 </head>
 
-<body>
+<body class="bg-light-subtle">
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
         <div class="container">
@@ -79,77 +112,63 @@
                         <a class="nav-link" href="./Contact.html">تواصل معنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./Categories.html">الأقسام</a>
+                        <a class="nav-link" href="./Categories.html">الأقسام</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./Home.html">الرئيسية</a>
+                        <a class="nav-link active" href="./Home.html">الرئيسية</a>
                     </li>
                 </ul>
 
                 <!-- اللوجو -->
                 <a class="navbar-brand ms-3" href="./Home.html">
-                    <img src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg" alt="ShopStyle"
-                        width="120" height="40" class="d-inline-block align-text-top">
+                    <img src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg" alt="logo" width="120"
+                        height="40" class="d-inline-block align-text-top">
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Cart Content -->
-    <div class="container cart-container">
-        <h4 class="mb-4">Shopping Cart</h4>
-        <div class="row">
-            <div class="col-md-8" id="cart-elem">
-                <!-- <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93" alt="Leather Crossbody Bag"
-                        class="me-3" width="80" height="80">
-                    <div class="flex-grow-1">
-                        <h5 class="mb-1">Leather Crossbody Bag</h5>
-                        <p class="mb-0">$129.99</p>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <button class="btn btn-outline-secondary btn-sm">-</button>
-                        <span class="mx-2">1</span>
-                        <button class="btn btn-outline-secondary btn-sm">+</button>
-                        <button class="btn btn-outline-danger btn-sm ms-3"><i class="bi bi-trash3"></i></button>
-                    </div>
-                </div> -->
-                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93" alt="Leather Wallet"
-                        class="me-3" width="80" height="80">
-                    <div class="flex-grow-1">
-                        <h5 class="mb-1">Leather Wallet</h5>
-                        <p class="mb-0">$49.99</p>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <button class="btn btn-outline-secondary btn-sm">-</button>
-                        <span class="mx-2">1</span>
-                        <button class="btn btn-outline-secondary btn-sm">+</button>
-                        <button class="btn btn-outline-danger btn-sm ms-3"><i class="bi bi-trash3"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="order-summary">
-                    <h5 class="mb-3">Order Summary</h5>
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Subtotal</span>
-                        <span>$179.98</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Shipping</span>
-                        <span>$10.00</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between fw-bold">
-                        <span>Total</span>
-                        <span>$189.98</span>
-                    </div>
-                    <button class="btn checkout-btn mt-3">Proceed to Checkout</button>
-                </div>
-            </div>
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+        <div class="step completed">
+            <div class="step-number">1</div>
+            <span>Cart</span>
+        </div>
+        <div class="step completed">
+            <div class="step-number">2</div>
+            <span>Information</span>
+        </div>
+        <div class="step completed">
+            <div class="step-number">3</div>
+            <span>Payment</span>
+        </div>
+        <div class="step active">
+            <div class="step-number">4</div>
+            <span>Confirmation</span>
         </div>
     </div>
+
+    <!-- Confirmation Message -->
+    <div class="confirmation-container">
+        <div class="confirmation-icon">✅</div>
+        <h2>Order Confirmed!</h2>
+        <p>Thank you for your purchase. Your order has been confirmed and will be shipped soon.</p>
+        <p class="order-number">Order number: <span id="order-id">#4CH7SBD8T</span></p>
+        <a href="home.html" class="btn btn-primary mt-3">Continue Shopping</a>
+    </div>
+
+    <script>
+        // توليد رقم طلب عشوائي (محاكاة طلب حقيقي)
+        function generateOrderId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let orderId = '#';
+            for (let i = 0; i < 8; i++) {
+                orderId += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('order-id').textContent = orderId;
+        }
+        generateOrderId();
+    </script>
 
 
     <!-- Footer -->
@@ -267,8 +286,6 @@
 
     <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
     <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-    <script src="cart.js"></script>
-    <script src="script.js"></script>
 
 </body>
 

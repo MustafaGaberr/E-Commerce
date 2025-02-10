@@ -167,3 +167,46 @@
             background-color: #1f2a4a;
             border-color: #1f2a4a;
         }
+
+        /* checkout info */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .step.active {
+            color: blue;
+            font-weight: bold;
+        }
+        .step.completed {
+            color: green;
+        }
+        .step-number {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #e0f7e9;
+            color: green;
+            font-weight: bold;
+        }
+        .step.active .step-number {
+            background-color: #d6d6ff;
+            color: blue;
+        }
+        .step.disabled {
+            color: gray;
+        }
+        .step.disabled .step-number {
+            background-color: #e0e0e0;
+        }
+
+        
