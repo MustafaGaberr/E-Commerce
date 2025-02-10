@@ -12,15 +12,15 @@
 
 <body class="bg-light-subtle">
 
-    <!-- Navbar -->
+    <!-- شريط التنقل الرئيسي -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
         <div class="container">
-            <!-- اليمين: الحساب والعربة -->
+            <!-- القسم الأيمن: العربة والحساب -->
             <div class="d-flex align-items-center">
                 <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
                     <span class="ms-2">العربة</span>
                     <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
-                    <span id="cart-count" class="cart-badge" style="display: none; color: aquamarine;"></span>
+                    <span id="cart-count" class="cart-badge" style="display: none;"></span>
                 </a>
 
                 <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
@@ -29,13 +29,12 @@
                 </a>
             </div>
 
-            <!-- زر الموبايل -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- زر القائمة للشاشات الصغيرة -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- شريط البحث -->
+            <!-- قسم البحث المركزي -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <form class="d-flex position-relative flex-grow-1 mx-3" dir="rtl">
                     <div class="input-group border overflow-hidden w-100" style="border-radius: 8px; max-width: 700px;">
@@ -48,7 +47,7 @@
                 </form>
             </div>
 
-            <!-- اليسار: الروابط واللوجو -->
+            <!-- القسم الأيسر: روابط التنقل والشعار -->
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -71,10 +70,7 @@
         </div>
     </nav>
 
-
-
-
-    <!-- Hero Section -->
+    <!-- قسم العرض الرئيسي -->
     <div class="position-relative text-center text-white bg-dark" style="
          height: 600px;
          background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8')
@@ -83,11 +79,9 @@
         <div class="position-absolute w-100 h-100 bg-black opacity-50"></div>
         <div class="position-relative d-flex align-items-center justify-content-center h-100">
             <div>
-                <h1 class="display-4 fw-bold">Summer Collection 2024</h1>
-                <p class="lead">
-                    Discover the latest trends in fashion and accessories
-                </p>
-                <a href="./Categories.html" class="btn btn-light">Shop Now</a>
+                <h1 class="display-4 fw-bold">مجموعة صيف 2024</h1>
+                <p class="lead">اكتشف أحدث صيحات الموضة والإكسسوارات</p>
+                <a href="./Categories.html" class="btn btn-light">تسوق الآن</a>
             </div>
         </div>
     </div>
@@ -342,7 +336,7 @@
         </div>
     </footer>
 
-
+    <!-- المكتبات والسكربتات -->
     <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
     <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
     <script src="carouselProducts.js"></script>

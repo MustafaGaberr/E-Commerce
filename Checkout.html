@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noon - Home</title>
+  <title>نون - إتمام الطلب</title>
   <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- أنماط خاصة بصفحة إتمام الطلب -->
   <style>
     .check-icon-container {
       width: 40px;
@@ -26,14 +28,15 @@
     }
 
     .checkout-btn {
-      background-color: #5a54f7;
+      background-color: var(--bs-primary);
       color: white;
       border: none;
       width: 100%;
     }
 
     .checkout-btn:hover {
-      background-color: #4a46e0;
+      background-color: #0d6efd;
+      color: white;
     }
   </style>
 </head>
@@ -98,75 +101,81 @@
     </div>
   </nav>
 
+  <!-- مراحل إتمام الطلب -->
   <section class="container-sm my-5">
-    <!-- Carousel -->
     <div id="homeCarousel" class="carousel slide" dir="rtl">
       <div class="carousel-inner">
+        <!-- مرحلة عربة التسوق -->
         <div class="carousel-item active">
-
-          <!-- Cart Content -->
           <div class="container cart-container">
-            <h4 class="mb-4">Shopping Cart</h4>
+            <h4 class="mb-4">عربة التسوق</h4>
             <div class="row">
               <div class="col-md-8" id="cart-elem">
-
+                <!-- سيتم إضافة المنتجات هنا عن طريق JavaScript -->
               </div>
               <div class="col-md-4">
                 <div class="order-summary">
-                  <h5 class="mb-3">Order Summary</h5>
+                  <h5 class="mb-3">ملخص الطلب</h5>
                   <div class="d-flex justify-content-between mb-2">
-                    <span>Subtotal</span>
-                    <span>$179.98</span>
+                    <span>المجموع الفرعي</span>
+                    <span>179.98 ريال</span>
                   </div>
                   <div class="d-flex justify-content-between mb-2">
-                    <span>Shipping</span>
-                    <span>$10.00</span>
+                    <span>الشحن</span>
+                    <span>10.00 ريال</span>
                   </div>
                   <hr>
                   <div class="d-flex justify-content-between fw-bold">
-                    <span>Total</span>
-                    <span>$189.98</span>
+                    <span>الإجمالي</span>
+                    <span>189.98 ريال</span>
                   </div>
-                  <button class="btn checkout-btn mt-3" data-bs-target="#homeCarousel" data-bs-slide="next">Proceed to
-                    Checkout</button>
+                  <button class="btn checkout-btn mt-3" data-bs-target="#homeCarousel" data-bs-slide="next">
+                    متابعة الدفع
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-        <div class="carousel-item ">
-          <form dir="auto">
+
+        <!-- مرحلة معلومات التوصيل -->
+        <div class="carousel-item">
+          <form class="needs-validation" novalidate>
             <div class="row mb-3">
               <div class="col">
                 <label for="firstName" class="form-label">الاسم الأول</label>
-                <input type="text" class="form-control" id="firstName" value="" />
+                <input type="text" class="form-control" id="firstName" required>
+                <div class="invalid-feedback">يرجى إدخال الاسم الأول</div>
               </div>
               <div class="col">
                 <label for="lastName" class="form-label">اسم العائلة</label>
-                <input type="text" class="form-control" id="lastName" value="" />
+                <input type="text" class="form-control" id="lastName" required>
+                <div class="invalid-feedback">يرجى إدخال اسم العائلة</div>
               </div>
             </div>
 
             <div class="mb-3">
               <label for="email" class="form-label">البريد الإلكتروني</label>
-              <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني" value="" />
+              <input type="email" class="form-control" id="email" required>
+              <div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح</div>
             </div>
-
 
             <div class="mb-3">
               <label for="streetAddress" class="form-label">عنوان الشارع</label>
-              <input type="text" class="form-control" id="streetAddress" value="" />
+              <input type="text" class="form-control" id="streetAddress" required>
+              <div class="invalid-feedback">يرجى إدخال عنوان الشارع</div>
             </div>
 
             <div class="row mb-3">
               <div class="col">
                 <label for="city" class="form-label">المدينة</label>
-                <input type="text" class="form-control" id="city" value="" />
+                <input type="text" class="form-control" id="city" required>
+                <div class="invalid-feedback">يرجى إدخال المدينة</div>
               </div>
               <div class="col">
                 <label for="postalCode" class="form-label">الرمز البريدي</label>
-                <input type="text" class="form-control" id="postalCode" placeholder="أدخل الرمز البريدي" />
+                <input type="text" class="form-control" id="postalCode" required>
+                <div class="invalid-feedback">يرجى إدخال الرمز البريدي</div>
               </div>
             </div>
 
@@ -180,26 +189,33 @@
             </div>
           </form>
         </div>
+
+        <!-- مرحلة معلومات الدفع -->
         <div class="carousel-item">
-          <form>
+          <form class="needs-validation" novalidate>
             <div class="mb-3">
               <label for="cardName" class="form-label">الاسم على البطاقة</label>
-              <input type="text" class="form-control" id="cardName" placeholder="أدخل الاسم كما هو مكتوب على البطاقة" />
+              <input type="text" class="form-control" id="cardName" required>
+              <div class="invalid-feedback">يرجى إدخال الاسم كما هو على البطاقة</div>
             </div>
 
             <div class="mb-3">
               <label for="cardNumber" class="form-label">رقم البطاقة</label>
-              <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" />
+              <input type="text" class="form-control" id="cardNumber" pattern="[0-9]{16}" required>
+              <div class="invalid-feedback">يرجى إدخال رقم بطاقة صحيح</div>
             </div>
 
             <div class="row mb-3">
               <div class="col">
                 <label for="expiryDate" class="form-label">تاريخ الانتهاء</label>
-                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" />
+                <input type="text" class="form-control" id="expiryDate" pattern="(0[1-9]|1[0-2])\/([0-9]{2})"
+                  placeholder="MM/YY" required>
+                <div class="invalid-feedback">يرجى إدخال تاريخ صحيح</div>
               </div>
               <div class="col">
                 <label for="cvv" class="form-label">رمز CVV</label>
-                <input type="text" class="form-control" id="cvv" placeholder="XXX" />
+                <input type="text" class="form-control" id="cvv" pattern="[0-9]{3,4}" required>
+                <div class="invalid-feedback">يرجى إدخال رمز CVV صحيح</div>
               </div>
             </div>
 
@@ -207,39 +223,54 @@
               <button type="button" class="btn btn-secondary" data-bs-target="#homeCarousel" data-bs-slide="prev">
                 رجوع
               </button>
-              <button type="button" class="btn btn-primary" data-bs-target="#homeCarousel" data-bs-slide="next">
+              <button type="submit" class="btn btn-primary">
                 إتمام الطلب
               </button>
             </div>
           </form>
         </div>
-        <div class="carousel-item">
-          <!-- علامة النجاح -->
+
+        <!-- مرحلة تأكيد الطلب -->
+        <div class="carousel-item text-center">
           <div class="d-flex justify-content-center">
             <div
               class="bg-success text-white rounded-circle check-icon-container d-flex justify-content-center align-items-center">
               <i class="bi bi-check fs-2"></i>
             </div>
           </div>
-
-          <!-- رسالة تأكيد الطلب -->
           <h2 class="mt-3 fw-bold">تم تأكيد الطلب!</h2>
-          <p>شكرًا لشرائك. تم تأكيد طلبك وسيتم شحنه قريبًا.</p>
+          <p>شكراً لك على الطلب. سيتم إرسال تأكيد إلى بريدك الإلكتروني.</p>
           <p><strong>رقم الطلب: #GQ29DKJW6</strong></p>
-
-          <!-- زر متابعة التسوق -->
-          <a href="#" class="btn btn-primary">
-            <i class="fa-solid fa-cart-shopping"></i> متابعة التسوق
+          <a href="./Home.html" class="btn btn-primary">
+            <i class="bi bi-cart"></i> متابعة التسوق
           </a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- المكتبات والسكربتات -->
   <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-  <!-- <script src="carouselProducts.js"></script> -->
+  <script src="cart.js"></script>
   <script src="script.js"></script>
+
+  <!-- التحقق من النماذج -->
+  <script>
+    (() => {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
 </body>
 
 </html>

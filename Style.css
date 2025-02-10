@@ -210,3 +210,54 @@
 input[type="email"]{
   direction: rtl;
 }
+
+/* تحسينات للـ Navbar */
+@media (max-width: 992px) {
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+
+    .navbar-collapse {
+        order: 3;
+        width: 100%;
+    }
+
+    .navbar form {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .navbar-nav {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-brand {
+        margin: 0 auto;
+    }
+}
+
+/* تحسين عرض السلة في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .cart-container .row {
+        flex-direction: column-reverse;
+    }
+
+    .order-summary {
+        margin-bottom: 2rem;
+    }
+}
+
+/* تحسين عرض نموذج التواصل في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}

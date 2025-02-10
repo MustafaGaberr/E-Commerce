@@ -1,97 +1,99 @@
-let productsData = [
+const productsData = [
     {
         img: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0",
-        name: "Denim Jacket",
+        name: "جاكيت جينز",
         price: 79.99,
-        category: "Clothing",
+        category: "الملابس",
         id: 1
     },
     {
         img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa",
-        name: "Leather Crossbody Bag",
+        name: "حقيبة جلدية",
         price: 129.99,
-        category: "Beauty",
+        category: "الإكسسوارات",
         id: 2
     },
     {
         img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314",
-        name: "Gold Watch",
+        name: "ساعة ذهبية",
         price: 199.99,
-        category: "Accessories",
+        category: "الإكسسوارات",
         id: 3
     },
     {
         img: "https://images.unsplash.com/photo-1549298916-b41d501d3772",
-        name: "Classic White Sneakers",
+        name: "حذاء رياضي أبيض",
         price: 89.99,
-        category: "Shoes",
+        category: "الأحذية",
         id: 4
     }
 ];
 
+// عرض المنتجات في القسم الأول من السلايدر
 function productsCar() {
     const parent = document.getElementById("car-product");
-    parent.innerHTML = ""; // تفريغ المنتجات القديمة
+    if (!parent) return;
 
-    for (const element of productsData) {
-        let product = document.createElement("div");
-        product.innerHTML = `
-        <div class="card">
-            <img src="${element.img}" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">${element.name}</h5>
-                <h6 class="card-text">${element.category}</h6>
-                <p class="card-text">$${element.price}</p>
-                <button class="btn btn-primary add-to-cart" onclick="addToCart(${element.id})">
-                    Add to Cart
-                </button>
-            </div>
-        </div>`;
-        product.className = "col-md-3 product-card";
-        product.setAttribute("data-price", element.price);
-        product.setAttribute("data-category", element.category);
-        parent.appendChild(product);
-    }
+    parent.innerHTML = "";
+    renderProducts(parent);
 }
-productsCar();
 
+// عرض المنتجات في القسم الثاني من السلايدر
 function productsCard() {
     const parent = document.getElementById("car-product2");
-    parent.innerHTML = ""; // تفريغ المنتجات القديمة
+    if (!parent) return;
 
-    for (const element of productsData) {
-        let product = document.createElement("div");
-        product.innerHTML = `
-        <div class="card">
-            <img src="${element.img}" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">${element.name}</h5>
-                                <h6 class="card-text">${element.category}</h6>
-                <p class="card-text">$${element.price}</p>
-                <button class="btn btn-primary add-to-cart" onclick="addToCart(${element.id})">
-                    Add to Cart
-                </button>
-            </div>
-        </div>`;
-        product.className = "col-md-3 product-card";
-        product.setAttribute("data-price", element.price);
-        product.setAttribute("data-category", element.category);
-        parent.appendChild(product);
-    }
+    parent.innerHTML = "";
+    renderProducts(parent);
 }
-productsCard();
 
+// دالة مساعدة لعرض المنتجات
+function renderProducts(container) {
+    productsData.forEach(product => {
+        const productElement = document.createElement("div");
+        productElement.className = "col-md-3 product-card";
+        productElement.innerHTML = `
+            <div class="card h-100">
+                <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">${product.name}</h5>
+                    <h6 class="card-text">${product.category}</h6>
+                    <p class="card-text">${product.price} ريال</p>
+                    <button class="btn btn-primary add-to-cart" onclick="addToCart(${product.id})">
+                        إضافة للسلة
+                    </button>
+                </div>
+            </div>`;
+        container.appendChild(productElement);
+    });
+}
+
+// تحديث السلة
 let Cart = [];
 
-// دالة إضافة المنتجات للسلة
 function addToCart(id) {
-    let product = productsData.find((item) => item.id === id);
+    const product = productsData.find(item => item.id === id);
+    if (!product) return;
+
     Cart.push(product);
     updateCartCount();
-    console.log(Cart);
+    showNotification(`تمت إضافة ${product.name} إلى السلة`);
 }
 
-// تحديث عدد المنتجات في السلة
 function updateCartCount() {
-    document.getElementById("cartCount").innerText = Cart.length;
+    const cartCount = document.getElementById("cartCount");
+    if (!cartCount) return;
+
+    cartCount.innerText = Cart.length;
+    cartCount.style.display = Cart.length > 0 ? "flex" : "none";
 }
+
+function showNotification(message) {
+    alert(message);
+}
+
+// تهيئة الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    productsCar();
+    productsCard();
+});
