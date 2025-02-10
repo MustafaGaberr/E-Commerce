@@ -1,305 +1,189 @@
 <!DOCTYPE html>
 <html lang="ar">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noon - Home</title>
-    <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-        .check-icon-container{
-            width: 40px;
-            height: 40px;
-        }
-    </style>
-  </head>
 
-  <body class="bg-light-subtle">
-    <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top"
-    >
-      <div class="container">
-        <!-- اليمين: الحساب والعربة -->
-        <div class="d-flex align-items-center">
-          <a
-            class="btn position-relative p-2 d-flex align-items-center text-white me-3"
-            href="./cart.html"
-          >
-            <span class="ms-2">العربة</span>
-            <i class="bi bi-cart3 text-white" style="font-size: 1.5rem"></i>
-            <span
-              id="cart-count"
-              class="cart-badge"
-              style="display: none; color: aquamarine"
-            ></span>
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noon - Home</title>
+  <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .check-icon-container {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
 
-          <a
-            class="btn position-relative p-2 d-flex align-items-center text-white"
-            href="./profile.html"
-          >
-            <span class="ms-2">حسابي</span>
-            <i class="bi bi-person text-white" style="font-size: 1.5rem"></i>
-          </a>
-        </div>
+<body class="bg-light-subtle">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+    <div class="container">
+      <!-- اليمين: الحساب والعربة -->
+      <div class="d-flex align-items-center">
+        <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
+          <span class="ms-2">العربة</span>
+          <i class="bi bi-cart3 text-white" style="font-size: 1.5rem"></i>
+          <span id="cart-count" class="cart-badge" style="display: none; color: aquamarine"></span>
+        </a>
 
-        <!-- زر الموبايل -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
+          <span class="ms-2">حسابي</span>
+          <i class="bi bi-person text-white" style="font-size: 1.5rem"></i>
+        </a>
+      </div>
 
-        <!-- شريط البحث -->
-        <div
-          class="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
-        >
-          <form class="d-flex position-relative flex-grow-1 mx-3" dir="rtl">
-            <div
-              class="input-group border overflow-hidden w-100"
-              style="border-radius: 8px; max-width: 700px"
-            >
-              <button class="btn bg-white border-0 px-3" type="submit">
-                <i
-                  class="bi bi-search text-muted"
-                  style="font-size: 1.2rem"
-                ></i>
+      <!-- زر الموبايل -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- شريط البحث -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <form class="d-flex position-relative flex-grow-1 mx-3" dir="rtl">
+          <div class="input-group border overflow-hidden w-100" style="border-radius: 8px; max-width: 700px">
+            <button class="btn bg-white border-0 px-3" type="submit">
+              <i class="bi bi-search text-muted" style="font-size: 1.2rem"></i>
+            </button>
+            <input class="form-control border-0 shadow-none text-end px-3" type="search"
+              placeholder="ابحث هنا عن كل شيء لمنزلك" aria-label="Search" />
+          </div>
+        </form>
+      </div>
+
+      <!-- اليسار: الروابط واللوجو -->
+      <div class="d-flex align-items-center">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./Contact.html">تواصل معنا</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Categories.html">الأقسام</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./Home.html">الرئيسية</a>
+          </li>
+        </ul>
+
+        <!-- اللوجو -->
+        <a class="navbar-brand ms-3" href="./Home.html">
+          <img src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg" alt="logo" width="120" height="40"
+            class="d-inline-block align-text-top" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container-sm my-5">
+    <!-- Carousel -->
+    <div id="homeCarousel" class="carousel slide" dir="auto" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <form dir="auto">
+            <div class="row mb-3">
+              <div class="col">
+                <label for="firstName" class="form-label">الاسم الأول</label>
+                <input type="text" class="form-control" id="firstName" value="" />
+              </div>
+              <div class="col">
+                <label for="lastName" class="form-label">اسم العائلة</label>
+                <input type="text" class="form-control" id="lastName" value="" />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">البريد الإلكتروني</label>
+              <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني" value="" />
+            </div>
+
+
+            <div class="mb-3">
+              <label for="streetAddress" class="form-label">عنوان الشارع</label>
+              <input type="text" class="form-control" id="streetAddress" value="" />
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="city" class="form-label">المدينة</label>
+                <input type="text" class="form-control" id="city" value="" />
+              </div>
+              <div class="col">
+                <label for="postalCode" class="form-label">الرمز البريدي</label>
+                <input type="text" class="form-control" id="postalCode" placeholder="أدخل الرمز البريدي" />
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                العودة إلى السلة
               </button>
-              <input
-                class="form-control border-0 shadow-none text-end px-3"
-                type="search"
-                placeholder="ابحث هنا عن كل شيء لمنزلك"
-                aria-label="Search"
-              />
+              <button type="button" class="btn btn-primary" data-bs-target="#homeCarousel" data-bs-slide="next">
+                المتابعة إلى الدفع
+              </button>
             </div>
           </form>
         </div>
+        <div class="carousel-item">
+          <form>
+            <div class="mb-3">
+              <label for="cardName" class="form-label">الاسم على البطاقة</label>
+              <input type="text" class="form-control" id="cardName" placeholder="أدخل الاسم كما هو مكتوب على البطاقة" />
+            </div>
 
-        <!-- اليسار: الروابط واللوجو -->
-        <div class="d-flex align-items-center">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="./Contact.html">تواصل معنا</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Categories.html">الأقسام</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./Home.html">الرئيسية</a>
-            </li>
-          </ul>
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label">رقم البطاقة</label>
+              <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" />
+            </div>
 
-          <!-- اللوجو -->
-          <a class="navbar-brand ms-3" href="./Home.html">
-            <img
-              src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg"
-              alt="logo"
-              width="120"
-              height="40"
-              class="d-inline-block align-text-top"
-            />
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <section class="container-sm my-5">
-      <!-- Carousel -->
-      <div
-        id="homeCarousel"
-        class="carousel slide"
-        dir="auto"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <form dir="auto">
-              <div class="row mb-3">
-                <div class="col">
-                  <label for="firstName" class="form-label">الاسم الأول</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstName"
-                    value="مصطفى"
-                  />
-                </div>
-                <div class="col">
-                  <label for="lastName" class="form-label">اسم العائلة</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="lastName"
-                    value="جابر"
-                  />
-                </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="expiryDate" class="form-label">تاريخ الانتهاء</label>
+                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" />
               </div>
-
-              <div class="mb-3">
-                <label for="email" class="form-label">البريد الإلكتروني</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="أدخل بريدك الإلكتروني"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="streetAddress" class="form-label"
-                  >عنوان الشارع</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="streetAddress"
-                  value="المحمودية"
-                />
-              </div>
-
-              <div class="row mb-3">
-                <div class="col">
-                  <label for="city" class="form-label">المدينة</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="city"
-                    value="أسوان"
-                  />
-                </div>
-                <div class="col">
-                  <label for="postalCode" class="form-label"
-                    >الرمز البريدي</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="postalCode"
-                    placeholder="أدخل الرمز البريدي"
-                  />
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-target="#homeCarousel"
-                  data-bs-slide="prev"
-                >
-                  العودة إلى السلة
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-target="#homeCarousel"
-                  data-bs-slide="next"
-                >
-                  المتابعة إلى الدفع
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="carousel-item">
-            <form>
-              <div class="mb-3">
-                <label for="cardName" class="form-label"
-                  >الاسم على البطاقة</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cardName"
-                  placeholder="أدخل الاسم كما هو مكتوب على البطاقة"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="cardNumber" class="form-label">رقم البطاقة</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cardNumber"
-                  placeholder="1234 5678 9012 3456"
-                />
-              </div>
-
-              <div class="row mb-3">
-                <div class="col">
-                  <label for="expiryDate" class="form-label"
-                    >تاريخ الانتهاء</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="expiryDate"
-                    placeholder="MM/YY"
-                  />
-                </div>
-                <div class="col">
-                  <label for="cvv" class="form-label">رمز CVV</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="cvv"
-                    placeholder="XXX"
-                  />
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-target="#homeCarousel"
-                  data-bs-slide="prev"
-                >
-                  رجوع
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-target="#homeCarousel"
-                  data-bs-slide="next"
-                >
-                  إتمام الطلب
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="carousel-item">
-            <!-- علامة النجاح -->
-            <div class="d-flex justify-content-center">
-              <div class="bg-success text-white rounded-circle check-icon-container d-flex justify-content-center align-items-center">
-                <i class="bi bi-check fs-2"></i>
+              <div class="col">
+                <label for="cvv" class="form-label">رمز CVV</label>
+                <input type="text" class="form-control" id="cvv" placeholder="XXX" />
               </div>
             </div>
 
-            <!-- رسالة تأكيد الطلب -->
-            <h2 class="mt-3 fw-bold">تم تأكيد الطلب!</h2>
-            <p>شكرًا لشرائك. تم تأكيد طلبك وسيتم شحنه قريبًا.</p>
-            <p><strong>رقم الطلب: #GQ29DKJW6</strong></p>
-
-            <!-- زر متابعة التسوق -->
-            <a href="#" class="btn btn-primary">
-              <i class="fa-solid fa-cart-shopping"></i> متابعة التسوق
-            </a>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                رجوع
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-target="#homeCarousel" data-bs-slide="next">
+                إتمام الطلب
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="carousel-item">
+          <!-- علامة النجاح -->
+          <div class="d-flex justify-content-center">
+            <div
+              class="bg-success text-white rounded-circle check-icon-container d-flex justify-content-center align-items-center">
+              <i class="bi bi-check fs-2"></i>
+            </div>
           </div>
+
+          <!-- رسالة تأكيد الطلب -->
+          <h2 class="mt-3 fw-bold">تم تأكيد الطلب!</h2>
+          <p>شكرًا لشرائك. تم تأكيد طلبك وسيتم شحنه قريبًا.</p>
+          <p><strong>رقم الطلب: #GQ29DKJW6</strong></p>
+
+          <!-- زر متابعة التسوق -->
+          <a href="#" class="btn btn-primary">
+            <i class="fa-solid fa-cart-shopping"></i> متابعة التسوق
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
-    <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-    <!-- <script src="carouselProducts.js"></script> -->
-    <script src="script.js"></script>
-  </body>
+  <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
+  <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+  <!-- <script src="carouselProducts.js"></script> -->
+  <script src="script.js"></script>
+</body>
+
 </html>
