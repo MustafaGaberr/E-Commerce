@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noon - Cart</title>
     <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -84,58 +84,122 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="bg-primary text-white py-5" dir="rtl">
         <div class="container">
-            <div class="row">
+            <div class="row gy-4">
+                <!-- من نحن -->
                 <div class="col-md-3">
-                    <h5>About Us</h5>
-                    <p class="text-secondary">ShopStyle brings you the latest trends and products with exceptional
-                        quality and style.</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-secondary text-decoration-none">Home</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Categories</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Cart</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Customer Service</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-secondary text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Shipping</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Track Order</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Connect With Us</h5>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-envelope"></i></a>
+                    <h5 class="mb-4">من نحن</h5>
+                    <p class="text-light" style="line-height: 1.8;">
+                        يقدم لك هومزمارت أحدث الاتجاهات والمنتجات بجودة استثنائية وأسلوب رائع.
+                    </p>
+                    <br><br>
+                    <div class="mb-4">
+                        <h5 class="mb-4">الموقع</h5>
+                        <p class="text-light d-flex align-items-start gap-2" style="line-height: 1.8;">
+                            <i class="bi bi-geo-alt-fill mt-1"></i>
+                            <span>طريق الملك عبد العزيز،<br>الرياض 12467</span>
+                        </p>
                     </div>
-                    <div class="mt-3">
-                        <h6>Newsletter</h6>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div class="col-md-3">
+                    <h5 class="mb-4">روابط سريعة</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الرئيسية</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">التصنيفات</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">عربة التسوق</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">تواصل معنا</a></li>
+                    </ul>
+
+                    <!-- نحن نقبل -->
+                    <div class="mt-4">
+                        <h5 class="mb-4">نحن نقبل</h5>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://homzmart.sa/_next/static/media/visa.76742dc7.svg" alt="Visa"
+                                style="width: 80px; height: auto;">
+                            <img src="https://homzmart.sa/_next/static/media/master.90080a1a.svg" alt="Mastercard"
+                                style="width: 80px; height: auto;">
+                            <img src="https://homzmart.sa/_next/static/media/Applepay.85b7bed8.svg" alt="PayPal"
+                                style="width: 80px; height: auto;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- خدمة العملاء -->
+                <div class="col-md-3">
+                    <h5 class="mb-4">خدمة العملاء</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الأسئلة الشائعة</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الشحن والتوصيل</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الإرجاع والاستبدال</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">تتبع الطلب</a></li>
+                    </ul>
+
+                    <!-- تحميل التطبيق -->
+                    <div class="mt-4">
+                        <h5 class="mb-4">تحميل تطبيقنا</h5>
+                        <div class="download-app">
+                            <div class="d-flex flex-row gap-3">
+                                <a href="#" class="p-0">
+                                    <img src="https://homzmart.sa/_next/static/media/play_store_btn.ec379fdf.svg"
+                                        alt="Google Play" style="width: 120px; height: auto;">
+                                </a>
+                                <a href="#" class="p-0">
+                                    <img src="https://homzmart.sa/_next/static/media/iOS_btn.f91b444e.svg"
+                                        alt="App Store" style="width: 120px; height: auto;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تابعنا + النشرة البريدية -->
+                <div class="col-md-3">
+                    <!-- النشرة البريدية -->
+                    <div class="mb-4">
+                        <h5 class="mb-4">تريد مساعده؟</h5>
+                        <p class="text-light d-flex align-items-center gap-2" style="line-height: 1.8;">
+                            <i class="bi bi-envelope-fill"></i>
+                            hello@homzmart.sa
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="mb-4">اشترك في النشرة البريدية</h5>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <button class="btn btn-primary">Subscribe</button>
+                            <button class="btn btn-secondary rounded-start">اشتراك</button>
+                            <input type="email" class="form-control rounded-end" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5 class="mb-4">تابعنا</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-light fs-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4 pt-3 border-top border-secondary">
-                <p class="text-secondary">&copy; 2025 Gabour. All rights reserved.</p>
+
+            <!-- حقوق النشر -->
+            <div class="text-center mt-5 pt-4 border-top border-light">
+                <p class="text-light mb-0">
+                    &copy; جميع الحقوق محفوظة 2025
+                </p>
             </div>
         </div>
     </footer>
 
+
     <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
     <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>
