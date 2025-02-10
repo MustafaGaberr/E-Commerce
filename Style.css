@@ -43,10 +43,8 @@
 }
 
 .card {
-    width: 250px; /* عرض ثابت */
-    height: 400px; /* ارتفاع ثابت */
-    display: flex;
-    flex-direction: column;
+    width: 250px;
+
 }
 
 /* categories page */
