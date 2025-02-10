@@ -5,101 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noon - Categories</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-
-
-
-    <style>
-        /* تأثير hover على الكروت */
-        #productsGrid .card {
-            height: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #productsGrid .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        /* صور الكروت */
-        #productsGrid .card img {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        /* السلايدر */
-        .circle-slider {
-            display: flex;
-            overflow-x: auto;
-            gap: 1rem;
-            padding: 1rem 0;
-        }
-
-        .circle-slider .circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #dee2e6;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .circle-slider .circle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .circle-slider .circle img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-    </style>
+    <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+        <div class="container">
+            <!-- اليمين: الحساب والعربة -->
+            <div class="d-flex align-items-center">
+                <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
+                    <span class="ms-2">العربة</span>
+                    <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
+                    <span id="cart-count" class="cart-badge" style="display: none"></span>
+                </a>
+
+                <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
+                    <span class="ms-2">حسابي</span>
+                    <i class="bi bi-person text-white" style="font-size: 1.5rem;"></i>
+                </a>
+            </div>
+
+            <!-- زر الموبايل -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">ShopStyle</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+
+            <!-- شريط البحث -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <form class="d-flex position-relative flex-grow-1 mx-3" dir="rtl">
+                    <div class="input-group border overflow-hidden w-100" style="border-radius: 8px; max-width: 700px;">
+                        <button class="btn bg-white border-0 px-3" type="submit">
+                            <i class="bi bi-search text-muted" style="font-size: 1.2rem;"></i>
+                        </button>
+                        <input class="form-control border-0 shadow-none text-end px-3" type="search"
+                            placeholder="ابحث هنا عن كل شيء لمنزلك" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+
+            <!-- اليسار: الروابط واللوجو -->
+            <div class="d-flex align-items-center">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="navigateTo('index')">Home</a>
+                        <a class="nav-link" href="./Contact.html">تواصل معنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="navigateTo('categories')">Categories</a>
+                        <a class="nav-link active" href="./Categories.html">الأقسام</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./Home.html">الرئيسية</a>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-outline-secondary me-2" id="searchToggle">
-                        <i class="bi bi-search"></i>
-                    </button>
-                    <button class="btn btn-outline-secondary position-relative" onclick="navigateTo('cart')">
-                        <i class="bi bi-cart"></i>
-                        <span id="cart-count" class="cart-badge" style="display: none">0</span>
-                    </button>
-                </div>
+
+                <!-- اللوجو -->
+                <a class="navbar-brand ms-3" href="./Home.html">
+                    <img src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg" alt="ShopStyle"
+                        width="120" height="40" class="d-inline-block align-text-top">
+                </a>
             </div>
         </div>
     </nav>
-
-    <!-- Search Bar -->
-    <div id="searchBar" class="container mt-3" style="display: none">
-        <input type="text" class="form-control" placeholder="Search products..." />
-    </div>
-
 
 
     <!-- Categories Content -->
@@ -177,12 +147,12 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="bg-primary text-white py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <h5>About Us</h5>
-                    <p class="text-secondary">
+                    <p class="text-light">
                         ShopStyle brings you the latest trends and products with
                         exceptional quality and style.
                     </p>
@@ -191,16 +161,16 @@
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Home</a>
+                            <a href="#" class="text-light text-decoration-none">Home</a>
                         </li>
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Categories</a>
+                            <a href="#" class="text-light text-decoration-none">Categories</a>
                         </li>
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Cart</a>
+                            <a href="#" class="text-light text-decoration-none">Cart</a>
                         </li>
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Contact</a>
+                            <a href="#" class="text-light text-decoration-none">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -208,26 +178,26 @@
                     <h5>Customer Service</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">FAQ</a>
+                            <a href="#" class="text-light text-decoration-none">FAQ</a>
                         </li>
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Shipping</a>
+                            <a href="#" class="text-light text-decoration-none">Shipping</a>
                         </li>
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Returns</a>
+                            <a href="#" class="text-light text-decoration-none">Returns</a>
                         </li>
                         <li>
-                            <a href="#" class="text-secondary text-decoration-none">Track Order</a>
+                            <a href="#" class="text-light text-decoration-none">Track Order</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5>Connect With Us</h5>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-secondary fs-4"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-light fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-light fs-4"><i class="bi bi-envelope"></i></a>
                     </div>
                     <div class="mt-3">
                         <h6>Newsletter</h6>
@@ -238,53 +208,16 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4 pt-3 border-top border-secondary">
-                <p class="text-secondary">
-                    &copy; 2024 ShopStyle. All rights reserved.
+            <div class="text-center mt-4 pt-3 border-top border-light">
+                <p class="text-light">
+                    &copy; 2025 Gabour. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
-    <script>
-        const products = {
-            ceiling: [
-                { title: "Ceiling Light 1", price: "$50", img: "https://via.placeholder.com/200" },
-                { title: "Ceiling Light 2", price: "$75", img: "https://via.placeholder.com/200" }
-            ],
-            table: [
-                { title: "Table Lamp 1", price: "$30", img: "https://via.placeholder.com/200" },
-                { title: "Table Lamp 2", price: "$45", img: "https://via.placeholder.com/200" }
-            ],
-            wall: [
-                { title: "Wall Light 1", price: "$40", img: "https://via.placeholder.com/200" },
-                { title: "Wall Light 2", price: "$60", img: "https://via.placeholder.com/200" }
-            ]
-        };
-
-        function showProducts(category) {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = '';
-            products[category].forEach(product => {
-                const col = document.createElement('div');
-                col.className = 'col-md-4';
-                col.innerHTML = `
-                    <div class="card">
-                        <img src="${product.img}" class="card-img-top" alt="${product.title}">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.title}</h5>
-                            <p class="card-text">${product.price}</p>
-                            <button class="btn btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(col);
-            });
-        }
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
     <script src="script.js"></script>
 </body>
 

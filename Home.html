@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noon - Home</title>
+    <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body class="bg-light-subtle">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+        <div class="container">
+            <!-- اليمين: الحساب والعربة -->
+            <div class="d-flex align-items-center">
+                <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
+                    <span class="ms-2">العربة</span>
+                    <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
+                    <span id="cart-count" class="cart-badge" style="display: none"></span>
+                </a>
+
+                <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
+                    <span class="ms-2">حسابي</span>
+                    <i class="bi bi-person text-white" style="font-size: 1.5rem;"></i>
+                </a>
+            </div>
+
+            <!-- زر الموبايل -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- شريط البحث -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <form class="d-flex position-relative flex-grow-1 mx-3" dir="rtl">
+                    <div class="input-group border overflow-hidden w-100" style="border-radius: 8px; max-width: 700px;">
+                        <button class="btn bg-white border-0 px-3" type="submit">
+                            <i class="bi bi-search text-muted" style="font-size: 1.2rem;"></i>
+                        </button>
+                        <input class="form-control border-0 shadow-none text-end px-3" type="search"
+                            placeholder="ابحث هنا عن كل شيء لمنزلك" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+
+            <!-- اليسار: الروابط واللوجو -->
+            <div class="d-flex align-items-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Contact.html">تواصل معنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Categories.html">الأقسام</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./Home.html">الرئيسية</a>
+                    </li>
+                </ul>
+
+                <!-- اللوجو -->
+                <a class="navbar-brand ms-3" href="./Home.html">
+                    <img src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg" alt="logo" width="120"
+                        height="40" class="d-inline-block align-text-top">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Hero Section -->
+    <div class="position-relative text-center text-white bg-dark" style="
+         height: 600px;
+         background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8')
+           center/cover no-repeat;
+       ">
+        <div class="position-absolute w-100 h-100 bg-black opacity-50"></div>
+        <div class="position-relative d-flex align-items-center justify-content-center h-100">
+            <div>
+                <h1 class="display-4 fw-bold">Summer Collection 2024</h1>
+                <p class="lead">
+                    Discover the latest trends in fashion and accessories
+                </p>
+                <button class="btn btn-light">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="container-sm my-5">
+        <!-- Carousel -->
+        <div id="homeCarousel" class="carousel slide rounded-5 overflow-hidden" data-bs-theme="dark"
+            data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#homeCarouselIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#homeCarouselIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#homeCarouselIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://sa.homzmart.net/mageplaza/bannerslider/banner/image/k/s/ksa-main_banner-ar-dt_14__1.jpg"
+                        class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="https://sa.homzmart.net/mageplaza/bannerslider/banner/image/d/t/dt-ar.gif"
+                        class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="https://sa.homzmart.net/mageplaza/bannerslider/banner/image/k/s/ksa-main_banner-ar-dt_114.jpg"
+                        class="d-block w-100" alt="..." />
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon rounded-circle bg-black" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon rounded-circle bg-black" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Shop by Category</h2>
+            <div class="row row-cols-auto justify-content-center g-4">
+                <div>
+                    <div class="rounded-4 overflow-hidden shadow-sm position-relative">
+                        <div class="bg-light py-2 fw-bold">Clothing</div>
+                        <div class="category-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
+                                class="category-image object-fit-cover" />
+                        </div>
+                        <div class="position-absolute bottom-0 w-100">
+                            <div class="py-2 bg-primary bg-opacity-75 text-white mx-auto w-90 rounded-top-3">
+                                Starts from
+                                <span class="text-warning fs-5 fw-bold">999</span> USD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="rounded-4 overflow-hidden shadow-sm position-relative">
+                        <div class="bg-light py-2 fw-bold">Shoes</div>
+                        <div class="category-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
+                                class="category-image object-fit-cover" />
+                        </div>
+                        <div class="position-absolute bottom-0 w-100">
+                            <div class="py-2 bg-primary bg-opacity-75 text-white mx-auto w-90 rounded-top-3">
+                                Starts from
+                                <span class="text-warning fs-5 fw-bold">999</span> USD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="rounded-4 overflow-hidden shadow-sm position-relative">
+                        <div class="bg-light py-2 fw-bold">Accessories</div>
+                        <div class="category-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
+                                class="category-image object-fit-cover" />
+                        </div>
+                        <div class="position-absolute bottom-0 w-100">
+                            <div class="py-2 bg-primary bg-opacity-75 text-white mx-auto w-90 rounded-top-3">
+                                Starts from
+                                <span class="text-warning fs-5 fw-bold">999</span> USD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="rounded-4 overflow-hidden shadow-sm position-relative">
+                        <div class="bg-light py-2 fw-bold">Beauty</div>
+                        <div class="category-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"
+                                class="category-image object-fit-cover" />
+                        </div>
+                        <div class="position-absolute bottom-0 w-100">
+                            <div class="py-2 bg-primary bg-opacity-75 text-white mx-auto w-90 rounded-top-3">
+                                Starts from
+                                <span class="text-warning fs-5 fw-bold">999</span> USD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Featured Products</h2>
+
+            <!-- Carousel -->
+            <div id="product" class="carousel slide rounded-5 overflow-hidden" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row row-cols-auto justify-content-center g-4">
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Classic White Sneakers</h5>
+                                        <p class="card-text">Shoes</p>
+                                        <p class="fw-bold">$89.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="1"
+                                            data-name="Classic White Sneakers" data-price="89.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Leather Crossbody Bag</h5>
+                                        <p class="card-text">Accessories</p>
+                                        <p class="fw-bold">$129.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="2"
+                                            data-name="Leather Crossbody Bag" data-price="129.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denim Jacket</h5>
+                                        <p class="card-text">Clothing</p>
+                                        <p class="fw-bold">$79.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="3" data-name="Denim Jacket"
+                                            data-price="79.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gold Watch</h5>
+                                        <p class="card-text">Accessories</p>
+                                        <p class="fw-bold">$199.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="4" data-name="Gold Watch"
+                                            data-price="199.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row row-cols-auto justify-content-center g-4">
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Classic White Sneakers</h5>
+                                        <p class="card-text">Shoes</p>
+                                        <p class="fw-bold">$89.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="1"
+                                            data-name="Classic White Sneakers" data-price="89.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Leather Crossbody Bag</h5>
+                                        <p class="card-text">Accessories</p>
+                                        <p class="fw-bold">$129.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="2"
+                                            data-name="Leather Crossbody Bag" data-price="129.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denim Jacket</h5>
+                                        <p class="card-text">Clothing</p>
+                                        <p class="fw-bold">$79.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="3" data-name="Denim Jacket"
+                                            data-price="79.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gold Watch</h5>
+                                        <p class="card-text">Accessories</p>
+                                        <p class="fw-bold">$199.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="4" data-name="Gold Watch"
+                                            data-price="199.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row row-cols-auto justify-content-center g-4">
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Classic White Sneakers</h5>
+                                        <p class="card-text">Shoes</p>
+                                        <p class="fw-bold">$89.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="1"
+                                            data-name="Classic White Sneakers" data-price="89.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Leather Crossbody Bag</h5>
+                                        <p class="card-text">Accessories</p>
+                                        <p class="fw-bold">$129.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="2"
+                                            data-name="Leather Crossbody Bag" data-price="129.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Denim Jacket</h5>
+                                        <p class="card-text">Clothing</p>
+                                        <p class="fw-bold">$79.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="3" data-name="Denim Jacket"
+                                            data-price="79.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="card">
+                                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314"
+                                        class="card-img-top card-image object-fit-cover" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gold Watch</h5>
+                                        <p class="card-text">Accessories</p>
+                                        <p class="fw-bold">$199.99</p>
+                                        <button class="btn btn-primary add-to-cart" data-id="4" data-name="Gold Watch"
+                                            data-price="199.99">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#product" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon rounded-circle bg-black" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#product" data-bs-slide="next">
+                    <span class="carousel-control-next-icon rounded-circle bg-black" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-5" dir="rtl">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- من نحن -->
+                <div class="col-md-3">
+                    <h5 class="mb-4">من نحن</h5>
+                    <p class="text-light" style="line-height: 1.8;">
+                        يقدم لك هومزمارت أحدث الاتجاهات والمنتجات بجودة استثنائية وأسلوب رائع.
+                    </p>
+                    <br><br>
+                    <div class="mb-4">
+                        <h5 class="mb-4">الموقع</h5>
+                        <p class="text-light d-flex align-items-start gap-2" style="line-height: 1.8;">
+                            <i class="bi bi-geo-alt-fill mt-1"></i>
+                            <span>طريق الملك عبد العزيز،<br>الرياض 12467</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div class="col-md-3">
+                    <h5 class="mb-4">روابط سريعة</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الرئيسية</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">التصنيفات</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">عربة التسوق</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">تواصل معنا</a></li>
+                    </ul>
+
+                    <!-- نحن نقبل -->
+                    <div class="mt-4">
+                        <h5 class="mb-4">نحن نقبل</h5>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://homzmart.sa/_next/static/media/visa.76742dc7.svg" alt="Visa"
+                                style="width: 80px; height: auto;">
+                            <img src="https://homzmart.sa/_next/static/media/master.90080a1a.svg" alt="Mastercard"
+                                style="width: 80px; height: auto;">
+                            <img src="https://homzmart.sa/_next/static/media/Applepay.85b7bed8.svg" alt="PayPal"
+                                style="width: 80px; height: auto;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- خدمة العملاء -->
+                <div class="col-md-3">
+                    <h5 class="mb-4">خدمة العملاء</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الأسئلة الشائعة</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الشحن والتوصيل</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الإرجاع والاستبدال</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">تتبع الطلب</a></li>
+                    </ul>
+
+                    <!-- تحميل التطبيق -->
+                    <div class="mt-4">
+                        <h5 class="mb-4">تحميل تطبيقنا</h5>
+                        <div class="download-app">
+                            <div class="d-flex flex-row gap-3">
+                                <a href="#" class="p-0">
+                                    <img src="https://homzmart.sa/_next/static/media/play_store_btn.ec379fdf.svg"
+                                        alt="Google Play" style="width: 120px; height: auto;">
+                                </a>
+                                <a href="#" class="p-0">
+                                    <img src="https://homzmart.sa/_next/static/media/iOS_btn.f91b444e.svg"
+                                        alt="App Store" style="width: 120px; height: auto;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تابعنا + النشرة البريدية -->
+                <div class="col-md-3">
+                    <!-- النشرة البريدية -->
+                    <div class="mb-4">
+                        <h5 class="mb-4">تريد مساعده؟</h5>
+                        <p class="text-light d-flex align-items-center gap-2" style="line-height: 1.8;">
+                            <i class="bi bi-envelope-fill"></i>
+                            hello@homzmart.sa
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="mb-4">اشترك في النشرة البريدية</h5>
+                        <div class="input-group">
+                            <button class="btn btn-secondary rounded-start">اشتراك</button>
+                            <input type="email" class="form-control rounded-end" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5 class="mb-4">تابعنا</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-light fs-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- حقوق النشر -->
+            <div class="text-center mt-5 pt-4 border-top border-light">
+                <p class="text-light mb-0">
+                    &copy; جميع الحقوق محفوظة 2025
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
