@@ -20,7 +20,7 @@
                 <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
                     <span class="ms-2">العربة</span>
                     <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
-                    <span id="cart-count" class="cart-badge" style="display: none"></span>
+                    <span id="cart-count" class="cart-badge" style="display: none; color: aquamarine;"></span>
                 </a>
 
                 <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
@@ -207,131 +207,13 @@
             <div id="product" class="carousel slide rounded-5 overflow-hidden" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="row row-cols-auto justify-content-center g-4">
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">حذاء رياضي كلاسيكي </h5>
-                                        <p class="card-text">أحذية</p>
-                                        <p class="fw-bold">89.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="1"
-                                            data-name="حذاء رياضي كلاسيكي" data-price="89.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">حقيبة جلد كروس</h5>
-                                        <p class="card-text">إكسسوارات</p>
-                                        <p class="fw-bold">129.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="2"
-                                            data-name="حقيبة جلد كروس" data-price="129.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">جاكيت جينز</h5>
-                                        <p class="card-text">ملابس</p>
-                                        <p class="fw-bold">79.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="3" data-name="جاكيت جينز"
-                                            data-price="79.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">ساعة ذهبية</h5>
-                                        <p class="card-text">إكسسوارات</p>
-                                        <p class="fw-bold">199.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="4" data-name="ساعة ذهبية"
-                                            data-price="199.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row row-cols-auto justify-content-center g-4" id="car-product">
+
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row row-cols-auto justify-content-center g-4">
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">حذاء رياضي كلاسيكي</h5>
-                                        <p class="card-text">أحذية</p>
-                                        <p class="fw-bold">89.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="1"
-                                            data-name="حذاء رياضي كلاسيكي" data-price="89.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">حقيبة جلد كروس</h5>
-                                        <p class="card-text">إكسسوارات</p>
-                                        <p class="fw-bold">129.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="2"
-                                            data-name="حقيبة جلد كروس" data-price="129.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">جاكيت جينز</h5>
-                                        <p class="card-text">ملابس</p>
-                                        <p class="fw-bold">79.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="3" data-name="جاكيت جينز"
-                                            data-price="79.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="card">
-                                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314"
-                                        class="card-img-top card-image object-fit-cover" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">ساعة ذهبية</h5>
-                                        <p class="card-text">إكسسوارات</p>
-                                        <p class="fw-bold">199.99 SAR</p>
-                                        <button class="btn btn-primary add-to-cart" data-id="4" data-name="ساعة ذهبية"
-                                            data-price="199.99">
-                                            إضافة للسلة
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row row-cols-auto justify-content-center g-4" id="car-product2">
+
                         </div>
                     </div>
                 </div>
@@ -463,6 +345,7 @@
 
     <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
     <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="carouselProducts.js"></script>
     <script src="script.js"></script>
 </body>
 

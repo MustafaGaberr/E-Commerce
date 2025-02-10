@@ -8,6 +8,31 @@
     <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        .cart-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .order-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .checkout-btn {
+            background-color: #5a54f7;
+            color: white;
+            border: none;
+            width: 100%;
+        }
+
+        .checkout-btn:hover {
+            background-color: #4a46e0;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -19,7 +44,7 @@
                 <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
                     <span class="ms-2">العربة</span>
                     <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
-                    <span id="cart-count" class="cart-badge" style="display: none"></span>
+                    <span id="cart-count" class="cart-badge" style="display: none; color: aquamarine;"></span>
                 </a>
 
                 <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
@@ -71,17 +96,61 @@
     </nav>
 
     <!-- Cart Content -->
-    <div class="container mt-5">
-        <h2 class="mb-4">Shopping Cart</h2>
-        <div id="cart-items"></div>
-        <div class="mt-4 p-3 border rounded bg-light">
-            <h5>Order Summary</h5>
-            <p>Subtotal: <span id="subtotal">$0.00</span></p>
-            <p>Shipping: $10.00</p>
-            <p><strong>Total: <span id="total">$0.00</span></strong></p>
-            <button class="btn btn-primary w-100" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    <div class="container cart-container">
+        <h4 class="mb-4">Shopping Cart</h4>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93" alt="Leather Crossbody Bag"
+                        class="me-3" width="80" height="80">
+                    <div class="flex-grow-1">
+                        <h5 class="mb-1">Leather Crossbody Bag</h5>
+                        <p class="mb-0">$129.99</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">1</span>
+                        <button class="btn btn-outline-secondary btn-sm">+</button>
+                        <button class="btn btn-outline-danger btn-sm ms-3"><i class="bi bi-trash3"></i></button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93" alt="Leather Wallet"
+                        class="me-3" width="80" height="80">
+                    <div class="flex-grow-1">
+                        <h5 class="mb-1">Leather Wallet</h5>
+                        <p class="mb-0">$49.99</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">1</span>
+                        <button class="btn btn-outline-secondary btn-sm">+</button>
+                        <button class="btn btn-outline-danger btn-sm ms-3"><i class="bi bi-trash3"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="order-summary">
+                    <h5 class="mb-3">Order Summary</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <span>$179.98</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping</span>
+                        <span>$10.00</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-bold">
+                        <span>Total</span>
+                        <span>$189.98</span>
+                    </div>
+                    <button class="btn checkout-btn mt-3">Proceed to Checkout</button>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="bg-primary text-white py-5" dir="rtl">
@@ -198,6 +267,7 @@
 
     <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
     <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="cart.js"></script>
     <script src="script.js"></script>
 
 </body>

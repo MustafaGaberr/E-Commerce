@@ -20,7 +20,7 @@
                 <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
                     <span class="ms-2">العربة</span>
                     <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
-                    <span id="cart-count" class="cart-badge" style="display: none"></span>
+                    <span id="cart-count" class="cart-badge" style="display: none; color: aquamarine;"></span>
                 </a>
 
                 <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
@@ -75,33 +75,15 @@
     <!-- Categories Content -->
     <div class="container py-4">
         <div class="row">
-            <aside class="col-md-3">
-                <div class="card p-3 mb-3">
-                    <h5>Price Range</h5>
-                    <input type="range" id="priceRange" min="0" max="500" value="500" class="form-range">
-                    <p>Max Price: <span id="priceValue">$500</span></p>
-                </div>
-                <div class="card p-3">
-                    <h5>Categories</h5>
-                    <div>
-                        <label><input type="checkbox" class="category-checkbox" value="Clothing">
-                            Clothing</label><br>
-                        <label><input type="checkbox" class="category-checkbox" value="Shoes"> Shoes</label><br>
-                        <label><input type="checkbox" class="category-checkbox" value="Accessories">
-                            Accessories</label><br>
-                        <label><input type="checkbox" class="category-checkbox" value="Beauty"> Beauty</label>
-                    </div>
-                </div>
-            </aside>
             <main class="col-md-9">
                 <div class="row" id="productsGrid">
-                    <div class="col-md-4 product-card" data-price="89.99" data-category="Shoes">
+                    <!-- <div class="col-md-4 product-card" data-price="89.99" data-category="Shoes">
                         <div class="card">
                             <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">Classic White Sneakers</h5>
                                 <p class="card-text">$89.99</p>
-                                <button class="btn btn-primary add-to-cart" data-id="1"
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart()" data-id="1"
                                     data-name="Classic White Sneakers" data-price="89.99">Add to Cart</button>
                             </div>
                         </div>
@@ -140,9 +122,26 @@
                                     data-price="199.99">Add to Cart</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </main>
+            <aside class="col-md-3">
+                <div class="card p-3 mb-3">
+                    <h5>Price Range</h5>
+                    <input type="range" id="priceRange" min="0" max="500" value="500" class="form-range">
+                    <p>Max Price: <span id="priceValue">$500</span></p>
+                </div>
+                <div class="card p-3">
+                    <h5>Categories</h5>
+                    <div>
+                        <label><input type="checkbox" class="category-checkbox" value="Clothing"> Clothing</label><br>
+                        <label><input type="checkbox" class="category-checkbox" value="Shoes"> Shoes</label><br>
+                        <label><input type="checkbox" class="category-checkbox" value="Accessories">
+                            Accessories</label><br>
+                        <label><input type="checkbox" class="category-checkbox" value="Beauty"> Beauty</label>
+                    </div>
+                </div>
+            </aside>
         </div>
     </div>
 
@@ -261,6 +260,7 @@
 
     <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
     <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="filter.js"></script>
     <script src="script.js"></script>
 </body>
 

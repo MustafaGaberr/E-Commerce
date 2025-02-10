@@ -1,17 +1,19 @@
 let cartItems = [];
 
-// Navigation Function
-function navigateTo(page) {
-    window.location.href = `${page}.html`;
+// حفظ واسترجاع بيانات السلة من localStorage
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
 }
 
-// Search Toggle
-document.getElementById("searchToggle").addEventListener("click", function () {
-    let searchBar = document.getElementById("searchBar");
-    searchBar.style.display = searchBar.style.display === "none" ? "block" : "none";
-});
+function loadCart() {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+        cartItems = JSON.parse(savedCart);
+        updateCartCount();
+    }
+}
 
-// Update Cart Count
+// تحديث عدد المنتجات في أيقونة السلة
 function updateCartCount() {
     const cartCountElement = document.getElementById("cart-count");
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -23,7 +25,14 @@ function updateCartCount() {
     }
 }
 
-// Add to Cart
+// التنقل بين الصفحات
+function navigateTo(page) {
+    window.location.href = `${page}.html`;
+}
+
+
+
+// إضافة المنتجات إلى السلة
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         const id = button.getAttribute('data-id');
@@ -37,50 +46,13 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         } else {
             cartItems.push({ id, name, price, quantity: 1, image });
         }
+        saveCart();
         updateCartCount();
         alert(`${name} added to cart!`);
     });
 });
 
-// Filter Products
-document.addEventListener("DOMContentLoaded", function () {
-    let priceRange = [0, 500];
-    let selectedCategories = [];
-
-    function toggleCategory(category) {
-        const index = selectedCategories.indexOf(category);
-        if (index === -1) {
-            selectedCategories.push(category);
-        } else {
-            selectedCategories.splice(index, 1);
-        }
-        filterProducts();
-    }
-
-    function filterProducts() {
-        document.querySelectorAll(".product-card").forEach(card => {
-            const price = parseFloat(card.getAttribute("data-price"));
-            const category = card.getAttribute("data-category");
-            const matchesPrice = price >= priceRange[0] && price <= priceRange[1];
-            const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(category);
-            card.style.display = matchesPrice && matchesCategory ? "block" : "none";
-        });
-    }
-
-    document.getElementById("priceRange").addEventListener("input", function () {
-        priceRange[1] = parseInt(this.value);
-        document.getElementById("priceValue").innerText = `$${priceRange[1]}`;
-        filterProducts();
-    });
-
-    document.querySelectorAll(".category-checkbox").forEach(checkbox => {
-        checkbox.addEventListener("change", function () {
-            toggleCategory(this.value);
-        });
-    });
-});
-
-// Cart Functions
+// تحديث الكارت في صفحة cart.html
 function updateCart() {
     const cartContainer = document.getElementById("cart-items");
     cartContainer.innerHTML = "";
@@ -93,12 +65,12 @@ function updateCart() {
                 <div class="col-md-3">${item.name}</div>
                 <div class="col-md-2">$${item.price.toFixed(2)}</div>
                 <div class="col-md-3">
-                    <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(${item.id}, -1)">-</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
                     <span class="mx-2">${item.quantity}</span>
-                    <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(${item.id}, 1)">+</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-danger btn-sm" onclick="removeItem(${item.id})">Remove</button>
+                    <button class="btn btn-danger btn-sm" onclick="removeItem('${item.id}')">Remove</button>
                 </div>
             </div>`;
     });
@@ -106,49 +78,47 @@ function updateCart() {
     document.getElementById("total").innerText = `$${(subtotal + 10).toFixed(2)}`;
 }
 
+// تحديث كمية المنتج في السلة
 function updateQuantity(id, change) {
-    cartItems = cartItems.map(item => item.id === id ? { ...item, quantity: Math.max(1, item.quantity + change) } : item);
+    id = id.toString();
+    cartItems = cartItems.map(item =>
+        item.id === id ? { ...item, quantity: Math.max(1, item.quantity + change) } : item
+    );
+    saveCart();
     updateCart();
     updateCartCount();
 }
 
+// إزالة منتج من السلة
 function removeItem(id) {
+    id = id.toString();
     cartItems = cartItems.filter(item => item.id !== id);
+    saveCart();
     updateCart();
     updateCartCount();
 }
 
+// الانتقال لصفحة الدفع
 function proceedToCheckout() {
-    alert("Proceeding to checkout...");
-    // Redirect to checkout page or show a form
+    window.location.href = "checkout.html";
 }
 
-// Initialize Cart
+// تهيئة الكارت عند تحميل الصفحة
 window.onload = function () {
+    loadCart();
     if (window.location.pathname.includes("cart.html")) {
         updateCart();
     }
     updateCartCount();
 };
 
-// contact us
-
-(function () {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
+// التحقق من نموذج "اتصل بنا"
+document.querySelectorAll('.needs-validation').forEach(form => {
+    form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    }, false);
+});
