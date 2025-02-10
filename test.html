@@ -12,6 +12,29 @@
       width: 40px;
       height: 40px;
     }
+
+    .cart-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .order-summary {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .checkout-btn {
+      background-color: #5a54f7;
+      color: white;
+      border: none;
+      width: 100%;
+    }
+
+    .checkout-btn:hover {
+      background-color: #4a46e0;
+    }
   </style>
 </head>
 
@@ -80,9 +103,39 @@
     <div id="homeCarousel" class="carousel slide" dir="auto">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          Cart
+
+          <!-- Cart Content -->
+          <div class="container cart-container">
+            <h4 class="mb-4">Shopping Cart</h4>
+            <div class="row">
+              <div class="col-md-8" id="cart-elem">
+
+              </div>
+              <div class="col-md-4">
+                <div class="order-summary">
+                  <h5 class="mb-3">Order Summary</h5>
+                  <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <span>$179.98</span>
+                  </div>
+                  <div class="d-flex justify-content-between mb-2">
+                    <span>Shipping</span>
+                    <span>$10.00</span>
+                  </div>
+                  <hr>
+                  <div class="d-flex justify-content-between fw-bold">
+                    <span>Total</span>
+                    <span>$189.98</span>
+                  </div>
+                  <button class="btn checkout-btn mt-3" data-bs-target="#homeCarousel" data-bs-slide="next">Proceed to
+                    Checkout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="carousel-item active">
+        <div class="carousel-item ">
           <form dir="auto">
             <div class="row mb-3">
               <div class="col">
