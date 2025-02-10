@@ -80,3 +80,18 @@ function productsCard() {
     }
 }
 productsCard();
+
+let Cart = [];
+
+// دالة إضافة المنتجات للسلة
+function addToCart(id) {
+    let product = productsData.find((item) => item.id === id);
+    Cart.push(product);
+    updateCartCount();
+    console.log(Cart);
+}
+
+// تحديث عدد المنتجات في السلة
+function updateCartCount() {
+    document.getElementById("cartCount").innerText = Cart.length;
+}
