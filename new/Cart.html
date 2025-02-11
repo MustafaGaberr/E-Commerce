@@ -169,41 +169,16 @@
             <h2 class="mb-4 text-center">عربة التسوق</h2>
 
             <div class="row g-4">
-                <!-- ملخص الطلب (يمين) -->
-                <div class="d-none d-lg-block col-lg-3 order-lg-1">
-                    <div class="card shadow-sm w-100 position-lg-sticky" style="top: 2rem;">
-                        <div class="card-body">
-                            <h5 class="card-title mb-4 text-center">ملخص الطلب</h5>
-                            <div class="d-flex justify-content-between mb-3">
-                                <span>إجمالي المنتجات</span>
-                                <span class="cart-subtotal fw-bold">0 ريال</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-3">
-                                <span>رسوم الشحن</span>
-                                <span class="cart-shipping fw-bold">20 ريال</span>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between mb-3">
-                                <span class="fw-bold">الإجمالي الكلي</span>
-                                <span class="cart-total fw-bold text-primary fs-5">0 ريال</span>
-                            </div>
-                            <button class="btn btn-primary w-100 py-2 mt-3" onclick="proceedToCheckout()">
-                                إتمام الشراء
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- العربة والمنتجات -->
-                <div class="col-12 col-lg-9 order-lg-0">
+                <div class="col-12 col-lg-9">
                     <div id="cart-items" class="no-click-zoom">
                         <!-- سيتم إضافة المنتجات هنا عن طريق JavaScript -->
                     </div>
                 </div>
 
-                <!-- ملخص الطلب للموبايل -->
-                <div class="col-12 d-lg-none" style="max-width: 400px;">
-                    <div class="card shadow-sm w-100">
+                <!-- ملخص الطلب (يمين) -->
+                <div class="col-12 col-lg-3">
+                    <div class="card shadow-sm w-100 sticky-summary">
                         <div class="card-body">
                             <h5 class="card-title mb-4 text-center">ملخص الطلب</h5>
                             <div class="d-flex justify-content-between mb-3">
@@ -228,6 +203,19 @@
             </div>
         </div>
     </div>
+
+    <!-- Toast لإتمام الشراء -->
+    <div class="toast align-items-center text-white bg-success border-0 position-fixed top-0 start-50 translate-middle-x mt-3"
+        id="checkoutToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                يتم تحويلك إلى صفحة الدفع...
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+
 
 
 
