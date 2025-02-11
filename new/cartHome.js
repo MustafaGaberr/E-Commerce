@@ -1,6 +1,3 @@
-// التأكد من وجود مصفوفة العربة في localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 // تحديث عدد العناصر في العربة
 function updateCartCount() {
     const cartCount = document.getElementById('cart-count');

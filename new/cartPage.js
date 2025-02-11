@@ -1,5 +1,3 @@
-// استرجاع المنتجات من localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const SHIPPING_COST = 20; // تكلفة الشحن الثابتة
 
 // تحديث عدد العناصر في العربة
@@ -15,7 +13,7 @@ function updateCartCount() {
 }
 
 // تحديث عرض المنتجات في العربة
-function updateCartDisplay() {
+/*function updateCartDisplay() {
     const cartContainer = document.getElementById('cart-items');
     const subtotalElements = document.querySelectorAll('.cart-subtotal');
     const totalElements = document.querySelectorAll('.cart-total');
@@ -49,7 +47,9 @@ function updateCartDisplay() {
         cartHTML += `
             <div class="card shadow-sm w-100 mb-3">
                 <div class="card-body p-3">
-                    ${window.innerWidth >= 992 ? `
+                    ${
+                      window.innerWidth >= 992
+                        ? `
                     <!-- Desktop View -->
                     <div class="row align-items-center">
                         <div class="col-2">
@@ -89,12 +89,14 @@ function updateCartDisplay() {
                             </div>
                         </div>
                     </div>
-                    ` : `
+                    `
+                        : `
                     <!-- Mobile View -->
                     <div class="text-center mb-3">
-                        <div class="ratio ratio-1x1" style="max-height: 250px; margin: 0 auto;">
+                        <div  >
                             <img src="${item.image}" 
-                                class="rounded-3 object-fit-cover" 
+                                class="ratio ratio-1x1 rounded-3 object-fit-cover" 
+                                style="max-height: 250px;"
                                 alt="${item.name}">
                         </div>
                     </div>
@@ -126,7 +128,8 @@ function updateCartDisplay() {
                             </button>
                         </div>
                     </div>
-                    `}
+                    `
+                    }
                 </div>
             </div>
         `;
@@ -139,8 +142,98 @@ function updateCartDisplay() {
     shippingElements.forEach(el => el.textContent = `${SHIPPING_COST.toFixed(2)} ريال`);
     const total = subtotal + SHIPPING_COST;
     totalElements.forEach(el => el.textContent = `${total.toFixed(2)} ريال`);
-}
+}*/
 
+function updateCartDisplay() {
+  const cartContainer = document.getElementById("cart-items");
+  const subtotalElements = document.querySelectorAll(".cart-subtotal");
+  const totalElements = document.querySelectorAll(".cart-total");
+  const shippingElements = document.querySelectorAll(".cart-shipping");
+
+  updateCartCount();
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = `
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-cart-x" style="font-size: 3rem;"></i>
+                    <h4 class="mt-3">العربة فارغة</h4>
+                    <a href="index.html" class="btn btn-primary mt-3">تسوق الآن</a>
+                </div>
+            </div>
+        `;
+    subtotalElements.forEach((el) => (el.textContent = "0 ريال"));
+    shippingElements.forEach((el) => (el.textContent = "0 ريال"));
+    totalElements.forEach((el) => (el.textContent = "0 ريال"));
+    return;
+  }
+
+  let cartHTML = "";
+  let subtotal = 0;
+
+  cart.forEach((item) => {
+    const itemTotal = item.price * item.quantity;
+    subtotal += itemTotal;
+
+    cartHTML += `
+            <div class="card shadow-sm w-100 mb-3">
+                <div class="card-body p-3"> 
+                    <!-- Desktop View -->
+                    <div class="row align-items-center">
+                        <div class="col-2">
+                            <div class="ratio ratio-1x1">
+                                <img src="${item.image}" 
+                                    class="rounded-3 object-fit-cover" 
+                                    alt="${item.name}">
+                            </div>
+                        </div>
+                        
+                        <div class="col-7">
+                            <h5 class="card-title mb-2">${item.name}</h5>
+                            <p class="card-text text-muted mb-1">${item.category}</p>
+                            <p class="card-text fw-bold text-primary mb-0">${item.price} ريال</p>
+                        </div>
+                        
+                        <div class="col-3">
+                            <div class="d-flex justify-content-end align-items-center gap-3">
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center" 
+                                        style="width: 32px; height: 32px;"
+                                        onclick="updateQuantity('${item.id}', -1)">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <span class="mx-3 fw-bold">${item.quantity}</span>
+                                    <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center" 
+                                        style="width: 32px; height: 32px;"
+                                        onclick="updateQuantity('${item.id}', 1)">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                                <button class="btn btn-link text-danger p-0" 
+                                    onclick="removeItem('${item.id}')"
+                                    style="font-size: 1.2rem;">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+  });
+
+  cartContainer.innerHTML = cartHTML;
+
+  // تحديث الأسعار
+  subtotalElements.forEach(
+    (el) => (el.textContent = `${subtotal.toFixed(2)} ريال`)
+  );
+  shippingElements.forEach(
+    (el) => (el.textContent = `${SHIPPING_COST.toFixed(2)} ريال`)
+  );
+  const total = subtotal + SHIPPING_COST;
+  totalElements.forEach((el) => (el.textContent = `${total.toFixed(2)} ريال`));
+}
 // تحديث كمية المنتج
 function updateQuantity(productId, change) {
     const item = cart.find(item => item.id === productId);
