@@ -484,6 +484,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
+
     <!-- التحقق من النموذج -->
     <script>
         (() => {
@@ -499,6 +500,27 @@
                 }, false);
             });
         })();
+
+        // تحميل العربة من localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // تحديث عدد العناصر في العربة
+        function updateCartCount() {
+            const cartCountElements = document.querySelectorAll('.cart-badge');
+            if (cartCountElements) {
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCountElements.forEach(badge => {
+                    badge.textContent = totalItems;
+                    badge.style.display = totalItems > 0 ? 'block' : 'none';
+                });
+            }
+        }
+
+        // تحديث عدد العناصر عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+        });
+
     </script>
 </body>
 
