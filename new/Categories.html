@@ -4,53 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>noon - Contact</title>
+    <title>noon - categories</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./Style.css">
     <script src="globals.js"></script>
 
-    <!-- أنماط خاصة بصفحة التواصل -->
     <style>
-        .hero-section-contact {
-            height: 300px;
-            background: url('./imgs/headerpic.jpeg') center/cover no-repeat;
-            position: relative;
+        .product-card {
+            transition: transform 0.3s ease;
         }
 
-        .overlay-contact {
-            background: rgba(0, 0, 0, 0.6);
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--bs-primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+        .category-checkbox {
+            margin-left: 8px;
         }
 
         @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
+            aside {
+                margin-bottom: 2rem;
+                order: -1;
             }
+        }
+
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .filter-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-dark {
+            background-color: #1b2430;
+            border: none;
         }
     </style>
 </head>
 
-<body class="bg-light-subtle">
+<body>
 
     <!-- Navbar -->
 
@@ -93,10 +97,10 @@
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./Contact.html">تواصل معنا</a>
+                        <a class="nav-link" href="./Contact.html">تواصل معنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./Categories.html">الأقسام</a>
+                        <a class="nav-link active " href="./Categories.html">الأقسام</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.html">الرئيسية</a>
@@ -150,10 +154,10 @@
                             <a class="nav-link " href="./index.html">الرئيسية</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./Categories.html">الأقسام</a>
+                            <a class="nav-link active" href="./Categories.html">الأقسام</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="./Contact.html">تواصل معنا</a>
+                            <a class="nav-link" href="./Contact.html">تواصل معنا</a>
                         </li>
                     </ul>
                 </div>
@@ -176,86 +180,91 @@
     </nav>
 
 
-    <!-- قسم العنوان الرئيسي -->
-    <div class="hero-section-contact">
-        <div class="overlay-contact h-100 d-flex align-items-center justify-content-center">
-            <h1 class="text-white display-4 fw-bold">تواصل معنا</h1>
-        </div>
-    </div>
 
-    <!-- قسم نموذج التواصل -->
-    <div class="container my-5" dir="rtl">
-        <div class="contact-container ">
-            <!-- معلومات التواصل -->
-            <div class="contact-info ">
-                <h2 class="text-primary fw-semibold mb-4">معلومات التواصل</h2>
-                <p class="text-muted mb-4">نحن هنا لمساعدتك. تواصل معنا لأي استفسار حول منتجاتنا وخدماتنا.</p>
+    <div class="container py-4">
+        <div class="row">
 
-                <div class="d-flex flex-column gap-4">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="contact-icon">
-                            <i class="bi bi-telephone-fill"></i>
-                        </div>
-                        <div>
-                            <h3 class="h5 fw-medium mb-1">الهاتف</h3>
-                            <p class="text-muted mb-0">+966 123 456 789</p>
+            <main class="col-md-9">
+                <div class="row g-4" id="productsGrid">
+                    <!-- منتج 1 -->
+                    <div class=" col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">جاكيت جينز</h5>
+                                <h6 class="card-title">الملابس</h6>
+                                <p class="card-text">79.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="1" data-name="جاكيت جينز"
+                                    data-price="79.99" data-image="./imgs/gucci.jpeg" data-category="الملابس">
+                                    إضافة للسلة
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="contact-icon">
-                            <i class="bi bi-envelope-fill"></i>
-                        </div>
-                        <div>
-                            <h3 class="h5 fw-medium mb-1">البريد الإلكتروني</h3>
-                            <p class="text-muted mb-0">hello@homzmart.sa</p>
+                    <!-- منتج 2 -->
+                    <div class="col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">حذاء رياضي</h5>
+                                <h6 class="card-title">الأحذية</h6>
+                                <p class="card-text">199.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="2" data-name="حذاء رياضي"
+                                    data-price="199.99" data-image="./imgs/gucci.jpeg" data-category="الأحذية">
+                                    إضافة للسلة
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="contact-icon">
-                            <i class="bi bi-geo-alt-fill"></i>
+                    <!-- منتج 3 -->
+                    <div class="col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">ساعة يد</h5>
+                                <h6 class="card-title">الإكسسوارات</h6>
+                                <p class="card-text">299.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="3" data-name="ساعة يد"
+                                    data-price="299.99" data-image="./imgs/gucci.jpeg" data-category="الإكسسوارات">
+                                    إضافة للسلة
+                                </button>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="h5 fw-medium mb-1">العنوان</h3>
-                            <p class="text-muted mb-0">طريق الملك عبد العزيز، الرياض 12467</p>
+                    </div>
+
+                    <!-- منتج 4 -->
+                    <div class="col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">عطر فاخر</h5>
+                                <h6 class="card-title">التجميل</h6>
+                                <p class="card-text">399.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="4" data-name="عطر فاخر"
+                                    data-price="399.99" data-image="./imgs/gucci.jpeg" data-category="التجميل">
+                                    إضافة للسلة
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- نموذج التواصل -->
-            <div class="contact-form">
-                <form id="contactForm" class="needs-validation" novalidate>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">الاسم الكامل</label>
-                        <input type="text" class="form-control" id="name" required>
-                        <div class="invalid-feedback">يرجى إدخال الاسم الكامل</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">البريد الإلكتروني</label>
-                        <input type="email" class="form-control" id="email" required>
-                        <div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">رقم الجوال</label>
-                        <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required>
-                        <div class="invalid-feedback">يرجى إدخال رقم جوال صحيح</div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="message" class="form-label">الرسالة</label>
-                        <textarea class="form-control" id="message" rows="5" required></textarea>
-                        <div class="invalid-feedback">يرجى كتابة رسالتك</div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100 py-3">
-                        <i class="bi bi-send-fill me-2"></i>إرسال الرسالة
-                    </button>
-                </form>
-            </div>
+            </main>
+            <aside class="col-md-3" dir="rtl">
+                <div class="filter-card mb-3">
+                    <h5>نطاق السعر</h5>
+                    <input type="range" id="priceRange" min="0" max="500" value="500" class="form-range">
+                    <p>السعر الأقصى: <span id="priceValue">500 ريال</span></p>
+                </div>
+                <div class="filter-card ">
+                    <h5>الأقسام</h5>
+                    <label><input type="checkbox" class="category-checkbox" value="Clothing"> الملابس</label><br>
+                    <label><input type="checkbox" class="category-checkbox" value="Shoes"> الأحذية</label><br>
+                    <label><input type="checkbox" class="category-checkbox" value="Accessories"> الإكسسوارات</label><br>
+                    <label><input type="checkbox" class="category-checkbox" value="Beauty"> التجميل</label>
+                </div>
+            </aside>
         </div>
     </div>
 
@@ -476,34 +485,29 @@
         </div>
     </footer>
 
-
-
-
+    <!-- بعد الناف بار مباشرة -->
+    <div class="toast-container position-fixed top-0 start-50 translate-middle-x"
+        style="z-index: 1000; margin-top: 100px;">
+        <div id="checkoutToast" class="toast align-items-center shadow-lg" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center gap-2 py-3">
+                    <i class="bi bi-check-circle-fill text-primary fs-5"></i>
+                    <span>جاري تحويلك لصفحة إتمام الشراء...</span>
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
 
     <!-- المكتبات والسكربتات -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./cartHome.js"></script>
+    <script src="./filter.js"></script>
 
 
-    <!-- التحقق من النموذج -->
-    <script>
-        (() => {
-            'use strict';
-            const forms = document.querySelectorAll('.needs-validation');
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        })();
-
-    </script>
 </body>
 
 </html>

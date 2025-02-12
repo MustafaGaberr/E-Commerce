@@ -49,7 +49,7 @@ function updateCartDisplay() {
             <div class="card shadow-sm w-100 mb-3">
                 <div class="card-body p-3"> 
                     <!-- Desktop View -->
-                    <div class="row align-items-center">
+                    <div class="d-none d-md-flex row align-items-center">
                         <div class="col-2">
                             <div class="ratio ratio-1x1">
                                 <img src="${item.image}" 
@@ -84,6 +84,44 @@ function updateCartDisplay() {
                                     style="font-size: 1.2rem;">
                                     <i class="bi bi-trash"></i>
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile View -->
+                    <div class="d-md-none">
+                        <div class="row mb-3">
+                            <div class="col-12 mb-3">
+                                <img src="${item.image}" 
+                                    class="rounded-3 w-100" 
+                                    style="height: 200px; object-fit: cover;"
+                                    alt="${item.name}">
+                            </div>
+                            <div class="col-12 text-center">
+                                <h5 class="card-title mb-2">${item.name}</h5>
+                                <p class="card-text text-muted mb-1">${item.category}</p>
+                                <p class="card-text fw-bold text-primary mb-3">${item.price} ريال</p>
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center" 
+                                            style="width: 32px; height: 32px;"
+                                            onclick="updateQuantity('${item.id}', -1)">
+                                            <i class="bi bi-dash"></i>
+                                        </button>
+                                        <span class="mx-3 fw-bold">${item.quantity}</span>
+                                        <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center" 
+                                            style="width: 32px; height: 32px;"
+                                            onclick="updateQuantity('${item.id}', 1)">
+                                            <i class="bi bi-plus"></i>
+                                        </button>
+                                    </div>
+                                    <button class="btn btn-link text-danger p-0" 
+                                        onclick="removeItem('${item.id}')"
+                                        style="font-size: 1.2rem;">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
