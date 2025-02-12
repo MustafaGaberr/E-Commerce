@@ -261,3 +261,52 @@ input[type="email"]{
         margin-bottom: 2rem;
     }
 }
+
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+#cart-count {
+  position: absolute;
+  top: -3px;
+  right: -7px;
+  font-weight: 600;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 8px;
+  font-size: 12px;
+  display: none;
+}
+
+/* علشان نضبط الكاروسل */
+#productCarousel .carousel-inner {
+  padding: 0 15px; /* علشان نمنع العناصر من التلامس مع الحواف */
+  margin: 0 auto; /* علشان نضمن إن الكاروسل بيكون في المنتصف */
+}
+
+
+#productCarousel .carousel-control-next {
+  right: -5%; /* علشان نحرك الزر الأيمن لبره */
+}
+
+/* علشان نضبط الكاردات */
+#productCarousel .card {
+  margin: 0 auto; /* علشان نضمن إن الكارد بيكون في المنتصف */
+  width: 100%; /* علشان نضمن إن الكارد بيكون بنفس العرض */
+}
+
+/* علشان نضبط الصور داخل الكاردات */
+#productCarousel .card-img-top {
+  height: 180px; /* تحديد ارتفاع ثابت للصورة */
+  object-fit: cover; /* علشان الصورة تتناسب مع الحجم */
+}
+
+/* علشان نضبط النص داخل الكاردات */
+#productCarousel .card-body {
+  flex-grow: 1; /* علشان المحتوى يتمدد حسب الحاجة */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* علشان الأزرار بتكون في الأسفل دائمًا */
+}
+

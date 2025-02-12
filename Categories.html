@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نون - الأقسام</title>
-    <link href="bootstrap-5.3.3-dist/css/bootstrap.rtl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <title>noon - categories</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./Style.css">
+    <script src="globals.js"></script>
 
-    <!-- أنماط خاصة بصفحة الأقسام -->
     <style>
         .product-card {
             transition: transform 0.3s ease;
@@ -33,20 +34,38 @@
                 order: -1;
             }
         }
+
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .filter-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-dark {
+            background-color: #1b2430;
+            border: none;
+        }
     </style>
 </head>
 
-<body class="bg-light-subtle">
+<body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top d-none d-lg-block">
         <div class="container">
-            <!-- اليمين: الحساب والعربة -->
-            <div class="d-flex align-items-center">
+            <!-- الحساب والعربة -->
+            <div class="d-flex align-items-center cart-icon">
                 <a class="btn position-relative p-2 d-flex align-items-center text-white me-3" href="./cart.html">
                     <span class="ms-2">العربة</span>
                     <i class="bi bi-cart3 text-white" style="font-size: 1.5rem;"></i>
-                    <span id="cart-count" class="cart-badge" style="display: none; color: aquamarine;"></span>
+                    <span id="cart-count" class="cart-badge" style="display: none; "></span>
                 </a>
 
                 <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
@@ -74,65 +93,185 @@
                 </form>
             </div>
 
-            <!-- اليسار: الروابط واللوجو -->
+            <!-- الروابط واللوجو -->
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="./Contact.html">تواصل معنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./Categories.html">الأقسام</a>
+                        <a class="nav-link active " href="./Categories.html">الأقسام</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./Home.html">الرئيسية</a>
+                        <a class="nav-link" href="./index.html">الرئيسية</a>
                     </li>
                 </ul>
 
                 <!-- اللوجو -->
-                <a class="navbar-brand ms-3" href="./Home.html">
-                    <img src="https://homzmart.sa/_next/static/media/BrandLogoAr.ed1ce8d1.svg" alt="ShopStyle"
-                        width="120" height="40" class="d-inline-block align-text-top">
+                <a class="navbar-brand ms-3" href="./index.html">
+                    <img src="./imgs/logo.svg" alt="Logo" width="120" height="40" class="d-inline-block align-text-top">
                 </a>
             </div>
         </div>
     </nav>
 
+    <!-- ناف بار الموبايل -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top d-lg-none">
+        <div class="container">
+            <!-- الصف العلوي للموبايل -->
+            <div class="w-100 d-flex justify-content-between align-items-center">
+                <!-- العربة وحسابي على اليسار -->
+                <div class="d-flex align-items-center">
+                    <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./profile.html">
+                        <i class="bi bi-person" style="font-size: 1.9rem;"></i>
+                    </a>
+                    <a class="btn position-relative p-2 d-flex align-items-center text-white" href="./cart.html">
+                        <i class="bi bi-cart3" style="font-size: 1.7rem;"></i>
+                        <span id="cart-count" class="cart-badge" style="display: none;"></span>
+                    </a>
+                </div>
 
-    <!-- محتوى الأقسام -->
+                <!-- اللوجو في المنتصف للموبايل -->
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./imgs/logo.svg" alt="Logo" width="200" height="35">
+                </a>
+
+                <!-- القائمة المنسدلة على اليمين -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvas">
+                    <span class="navbar-toggler-icon" style="font-size: 1.5rem;"></span>
+                </button>
+            </div>
+            <!-- القائمة المنسدلة الجانبية -->
+            <div class="offcanvas offcanvas-start bg-primary" id="navbarOffcanvas">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white">القائمة</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " href="./index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./Categories.html">الأقسام</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Contact.html">تواصل معنا</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- شريط البحث للموبايل -->
+            <div class="w-100">
+                <form class="d-flex position-relative" dir="rtl">
+                    <div class="input-group border overflow-hidden w-100" style="border-radius: 8px;">
+                        <button class="btn bg-white border-0 px-3" type="submit">
+                            <i class="bi bi-search text-muted" style="font-size: 1.2rem;"></i>
+                        </button>
+                        <input class="form-control border-0 shadow-none text-end px-3" type="search"
+                            placeholder="ابحث هنا عن كل شيء لمنزلك" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
     <div class="container py-4">
         <div class="row">
+
             <main class="col-md-9">
-                <div class="row" id="productsGrid">
-                    <!-- سيتم إضافة المنتجات هنا عن طريق JavaScript -->
+                <div class="row g-4" id="productsGrid">
+                    <!-- منتج 1 -->
+                    <div class=" col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">جاكيت جينز</h5>
+                                <h6 class="card-title">الملابس</h6>
+                                <p class="card-text">79.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="1" data-name="جاكيت جينز"
+                                    data-price="79.99" data-image="./imgs/gucci.jpeg" data-category="الملابس">
+                                    إضافة للسلة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- منتج 2 -->
+                    <div class="col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">حذاء رياضي</h5>
+                                <h6 class="card-title">الأحذية</h6>
+                                <p class="card-text">199.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="2" data-name="حذاء رياضي"
+                                    data-price="199.99" data-image="./imgs/gucci.jpeg" data-category="الأحذية">
+                                    إضافة للسلة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- منتج 3 -->
+                    <div class="col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">ساعة يد</h5>
+                                <h6 class="card-title">الإكسسوارات</h6>
+                                <p class="card-text">299.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="3" data-name="ساعة يد"
+                                    data-price="299.99" data-image="./imgs/gucci.jpeg" data-category="الإكسسوارات">
+                                    إضافة للسلة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- منتج 4 -->
+                    <div class="col-md-6 col-12 col-lg-6 col-xl-4">
+                        <div class="card h-100 w-100">
+                            <img src="./imgs/gucci.jpeg" class="card-img-top" alt="منتج 4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">عطر فاخر</h5>
+                                <h6 class="card-title">التجميل</h6>
+                                <p class="card-text">399.99</p>
+                                <button class="btn btn-primary add-to-cart" data-id="4" data-name="عطر فاخر"
+                                    data-price="399.99" data-image="./imgs/gucci.jpeg" data-category="التجميل">
+                                    إضافة للسلة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
-
-            <!-- شريط التصفية الجانبي -->
-            <aside class="col-md-3">
-                <!-- نطاق السعر -->
-                <div class="card p-3 mb-3">
+            <aside class="col-md-3" dir="rtl">
+                <div class="filter-card mb-3">
                     <h5>نطاق السعر</h5>
                     <input type="range" id="priceRange" min="0" max="500" value="500" class="form-range">
                     <p>السعر الأقصى: <span id="priceValue">500 ريال</span></p>
                 </div>
-
-                <!-- الأقسام -->
-                <div class="card p-3">
+                <div class="filter-card ">
                     <h5>الأقسام</h5>
-                    <div>
-                        <label><input type="checkbox" class="category-checkbox" value="Clothing"> الملابس</label><br>
-                        <label><input type="checkbox" class="category-checkbox" value="Shoes"> الأحذية</label><br>
-                        <label><input type="checkbox" class="category-checkbox" value="Accessories">
-                            الإكسسوارات</label><br>
-                        <label><input type="checkbox" class="category-checkbox" value="Beauty"> التجميل</label>
-                    </div>
+                    <label><input type="checkbox" class="category-checkbox" value="Clothing"> الملابس</label><br>
+                    <label><input type="checkbox" class="category-checkbox" value="Shoes"> الأحذية</label><br>
+                    <label><input type="checkbox" class="category-checkbox" value="Accessories"> الإكسسوارات</label><br>
+                    <label><input type="checkbox" class="category-checkbox" value="Beauty"> التجميل</label>
                 </div>
             </aside>
         </div>
     </div>
 
+
+
     <!-- Footer -->
-    <footer class="bg-primary text-white py-5" dir="rtl">
+    <footer class="bg-primary text-white py-5 d-none d-xl-block" dir="rtl">
         <div class="container">
             <div class="row gy-4">
                 <!-- من نحن -->
@@ -165,12 +304,9 @@
                     <div class="mt-4">
                         <h5 class="mb-4">نحن نقبل</h5>
                         <div class="d-flex align-items-center gap-3">
-                            <img src="https://homzmart.sa/_next/static/media/visa.76742dc7.svg" alt="Visa"
-                                style="width: 80px; height: auto;">
-                            <img src="https://homzmart.sa/_next/static/media/master.90080a1a.svg" alt="Mastercard"
-                                style="width: 80px; height: auto;">
-                            <img src="https://homzmart.sa/_next/static/media/Applepay.85b7bed8.svg" alt="PayPal"
-                                style="width: 80px; height: auto;">
+                            <img src="./imgs/visa.svg" alt="Visa" style="width: 80px; height: auto;">
+                            <img src="./imgs/master.svg" alt="Mastercard" style="width: 80px; height: auto;">
+                            <img src="./imgs/applepay.svg" alt="PayPal" style="width: 80px; height: auto;">
                         </div>
                     </div>
                 </div>
@@ -191,12 +327,11 @@
                         <div class="download-app">
                             <div class="d-flex flex-row gap-3">
                                 <a href="#" class="p-0">
-                                    <img src="https://homzmart.sa/_next/static/media/play_store_btn.ec379fdf.svg"
-                                        alt="Google Play" style="width: 120px; height: auto;">
+                                    <img src="./imgs/play_store.svg" alt="Google Play"
+                                        style="width: 120px; height: auto;">
                                 </a>
                                 <a href="#" class="p-0">
-                                    <img src="https://homzmart.sa/_next/static/media/iOS_btn.f91b444e.svg"
-                                        alt="App Store" style="width: 120px; height: auto;">
+                                    <img src="./imgs/iOS.svg" alt="App Store" style="width: 120px; height: auto;">
                                 </a>
                             </div>
                         </div>
@@ -243,12 +378,136 @@
         </div>
     </footer>
 
+    <!-- Footer for Medium and Small Screens -->
+    <footer class="bg-primary text-white py-5 d-xl-none" dir="rtl">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- من نحن -->
+                <div class="col-md-4 col-6">
+                    <h5 class="mb-4">من نحن</h5>
+                    <p class="text-light" style="line-height: 1.8;">
+                        يقدم لك هومزمارت أحدث الاتجاهات والمنتجات بجودة استثنائية وأسلوب رائع.
+                    </p>
+                    <br><br>
+                    <div class="mb-4 d-none d-lg-block">
+                        <h5 class="mb-4">الموقع</h5>
+                        <p class="text-light d-flex align-items-start gap-2" style="line-height: 1.8;">
+                            <i class="bi bi-geo-alt-fill mt-1"></i>
+                            <span>طريق الملك عبد العزيز،<br>الرياض 12467</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div class="col-md-4 col-6">
+                    <h5 class="mb-4">روابط سريعة</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الرئيسية</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">التصنيفات</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">عربة التسوق</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- خدمة العملاء -->
+                <div class="col-md-4 col-6">
+                    <h5 class="mb-4">خدمة العملاء</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الأسئلة الشائعة</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الشحن والتوصيل</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">الإرجاع والاستبدال</a></li>
+                        <li class="mb-3"><a href="#" class="text-light text-decoration-none">تتبع الطلب</a></li>
+                    </ul>
+                </div>
+
+                <!-- نحن نقبل (يظهر فقط في الميديم) -->
+                <div class="col-md-4 col-6 d-none d-md-block">
+                    <h5 class="mb-4">نحن نقبل</h5>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="./imgs/visa.svg" alt="Visa" style="width: 80px; height: auto;">
+                        <img src="./imgs/master.svg" alt="Mastercard" style="width: 80px; height: auto;">
+                        <img src="./imgs/Applepay.svg" alt="PayPal" style="width: 80px; height: auto;">
+                    </div>
+                </div>
+
+                <!-- تحميل التطبيق (يظهر فقط في الميديم) -->
+                <div class="col-md-4 col-6 d-none d-md-block">
+                    <h5 class="mb-4">تحميل تطبيقنا</h5>
+                    <div class="download-app">
+                        <div class="d-flex flex-column gap-3">
+                            <a href="#" class="p-0">
+                                <img src="./imgs/play_store.svg" alt="Google Play" style="width: 120px; height: auto;">
+                            </a>
+                            <a href="#" class="p-0">
+                                <img src="./imgs/iOS.svg" alt="App Store" style="width: 120px; height: auto;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تابعنا + النشرة البريدية -->
+                <div class="col-md-4 col-6">
+                    <!-- النشرة البريدية -->
+                    <div class="mb-4">
+                        <h5 class="mb-4">تريد مساعده؟</h5>
+                        <p class="text-light d-flex align-items-center gap-2" style="line-height: 1.8;">
+                            <i class="bi bi-envelope-fill"></i>
+                            hello@homzmart.sa
+                        </p>
+                    </div>
+
+                    <div class="mb-4 d-none d-xl-block">
+                        <h5 class="mb-4">اشترك في النشرة البريدية</h5>
+                        <div class="input-group">
+                            <button class="btn btn-secondary rounded-start">اشتراك</button>
+                            <input type="email" class="form-control rounded-end" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5 class="mb-4">تابعنا</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-light fs-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-light fs-2"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- حقوق النشر -->
+            <div class="text-center mt-5 pt-4 border-top border-light">
+                <p class="text-light mb-0">
+                    &copy; جميع الحقوق محفوظة 2025
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- بعد الناف بار مباشرة -->
+    <div class="toast-container position-fixed top-0 start-50 translate-middle-x"
+        style="z-index: 1000; margin-top: 100px;">
+        <div id="checkoutToast" class="toast align-items-center shadow-lg" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center gap-2 py-3">
+                    <i class="bi bi-check-circle-fill text-primary fs-5"></i>
+                    <span>جاري تحويلك لصفحة إتمام الشراء...</span>
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
 
     <!-- المكتبات والسكربتات -->
-    <script src="./bootstrap-5.3.3-dist/js/jquery-3.7.1.min.js"></script>
-    <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-    <script src="filter.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./cartHome.js"></script>
+    <script src="./filter.js"></script>
+
+
 </body>
 
 </html>
